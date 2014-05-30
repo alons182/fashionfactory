@@ -80,18 +80,7 @@ class UsersController extends \BaseController {
 			]);;
 	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /users/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
+	
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /users/{id}/edit

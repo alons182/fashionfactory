@@ -89,18 +89,7 @@ class ProductsController extends \BaseController {
 			]);;
 	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /products/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
+	
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /products/{id}/edit

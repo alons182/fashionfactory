@@ -77,18 +77,7 @@ class CategoriesController extends \BaseController {
 			]);;
 	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /categories/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
+	
 	/**
 	 * Show the form for editing the specified resource.
 	 * GET /categories/{id}/edit

@@ -14,27 +14,6 @@ class PhotosController extends \BaseController {
 		$this->limit = 10;
 	}
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /photos
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-		//
-	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /photos/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
-	}
 
 	/**
 	 * Store a newly created resource in storage.
@@ -49,42 +28,6 @@ class PhotosController extends \BaseController {
 		$data['photo'] = $_FILES['file'];
 		
 		return $this->photoRepository->store($data);;
-	}
-
-	/**
-	 * Display the specified resource.
-	 * GET /photos/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /photos/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /photos/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
 	}
 
 	/**
