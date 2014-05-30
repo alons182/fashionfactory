@@ -1,0 +1,62 @@
+@extends('layouts.layout')
+
+@section('content') 
+
+
+	<div class="page contact align-center">
+		<div class="section-bg" data-bg="/img/about.jpg">
+		</div>
+		@include('layouts/partials/_flash_message')
+		<div class="inner-about">
+			
+			<h1>Contáctenos</h1>
+			<p class="intro">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
+			<address>
+				<span>info@fashionfactory.com</span><br />
+				<span>2666-5858</span>
+			</address>	
+			<div class="bg_white">
+				{{ Form::open(['route'=>'contact.store','class'=>'form-contact']) }}
+				
+					<div class="form-group">
+						<div class="label-container">
+							{{ Form::label('name','Nombre:')}}
+						</div>
+						<div class="input-container">
+						{{ Form::text('name',null,['class'=>'form-control','required'=>'required'])}}
+						{{ errors_for('name',$errors) }}
+						</div>
+
+					</div>
+					<div class="form-group">
+						<div class="label-container">
+							{{ Form::label('email','Email:')}}
+						</div>
+						<div class="input-container">
+						{{ Form::email('email',null,['class'=>'form-control','required'=>'required'])}}
+						{{ errors_for('email',$errors) }}
+						</div>
+					</div>
+					<div class="form-group">
+						
+						{{ Form::textarea('comment',null,['class'=>'form-control','required'=>'required']) }}
+						{{ errors_for('comment',$errors) }}
+					</div>
+					<div class="form-group">
+						{{ Form::submit('Enviar',['class'=>'btn btn-primary'])}}
+						
+						
+
+					</div>
+				
+				{{ Form::close() }}
+			</div>
+
+
+		</div>
+		
+
+	</div>
+
+
+@stop

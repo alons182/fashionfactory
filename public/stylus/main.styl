@@ -1,0 +1,610 @@
+@import "nib"
+@import "normalize.styl"
+@import "icons.styl"
+
+fusia = #eb003a
+negro = #000
+naranja = #e46d22 
+naranja2 = #eb9755
+
+
+body
+	font-family 'Lato', sans-serif
+	font-size 16px
+	overflow-x hidden
+	width 100%
+	transition all 0.2s ease
+	opacity 0
+	line-height 25px
+	background-position center center
+	background-repeat no-repeat
+	background-size cover
+	background-attachment fixed
+	//background-color rgba(0, 0, 0, 0.9)
+	
+	
+
+	
+ul
+	margin 0
+	padding 0
+	list-style none
+
+a
+	text-decoration none
+
+h1
+h2
+	text-transform uppercase
+
+img
+	width 100%
+
+header
+	background rgba(0,0,0,.8)
+	left 0
+	right -195px
+	z-index 9999
+	transition all 0.2s ease
+		
+	.container
+		padding 1em 1.5em
+
+#btn_mobile
+	position fixed
+	right 0
+	top 0
+	color red
+	cursor pointer
+	padding .8em
+	.icon-menu
+		font-size 1.5em
+		color #FFF
+.search
+	display inline-block
+	.icon-search
+		font-size 1.2em
+		color #FFF
+.search-container
+	display inline-block
+	padding-left 10px
+	width 150px
+	
+	input
+		width 92%
+		padding 0 3%
+		border-radius 0
+		color #000
+		font-size 13px
+		height 25px
+		line-height 25px
+		border none
+		background #FFF
+		margin-left 2%
+		opacity 0
+.form-search
+	display inline-block
+		
+
+.logo
+	padding 1em
+	display block
+	width 180px
+	margin 60px auto 0
+.fixed
+	position fixed
+.absolute 
+	position absolute
+
+.container
+	padding 0
+	margin 0 auto
+
+.section-left
+	transform translateX(-100%)
+	background #fff
+	bottom 0
+	left 0 
+	overflow hidden
+	position fixed
+	text-align center
+	top 0
+	width 250px
+	z-index 999
+	transition transform 500ms ease	
+
+.menu 
+	li
+		a 
+			display block
+			padding .8em
+			color negro
+			transition all .2s ease
+			&:hover
+				font-weight 700
+				padding-left 20px
+	.active
+		background negro
+		a 
+			color #fff
+.redes
+	font-size 1em
+	margin-top 2em
+	
+	a 
+		color #fff
+		padding .5em
+		display inline-block
+		background #000
+		margin .2em
+
+		&:hover
+			background naranja
+
+	.icon-libermall
+		font-size 2.5em
+		padding 0
+		background rgba(0, 0, 0, 0)
+		color #000
+		position relative
+		top 12px
+		margin-left 0
+		&:hover
+			color naranja
+			background transparent
+			
+		
+.main
+	float right
+	margin 0
+
+.carousel
+	position relative
+	
+.ca-wrapper
+	position relative
+	height 100%
+	width 100%
+	overflow hidden	
+	
+
+.category_item
+	position relative
+	float left
+	width 480px
+	height 100%
+	text-align center
+	overflow hidden
+
+.category-image
+	position relative
+	cursor pointer
+
+	img 
+		max-width none
+		height 100%
+		position relative
+	&:hover
+		.category-background
+			transition all 0.2s linear 0s
+			opacity 1
+		.title-overlay 
+			bottom -400px
+			transition bottom 0.3s ease-in-out 0s
+		.category-readmore
+			bottom 65%
+			font-size 30px
+			transition all 0.3s ease-in-out 0s
+		.category-title
+			color #FFF
+
+			
+			
+			
+		
+.category-background
+	background rgba(0, 0, 0, 0.5)
+	position absolute
+	top 0
+	bottom 0
+	width 100%
+	transition all 0.2s linear 0s
+	opacity 0
+
+.category-readmore 
+	display inline-block
+	width 145px
+	height 145px
+	border-radius 50%
+	text-align center
+	color #FFF
+	background rgba(0, 0, 0, 0.6)
+	font-size 30px//font-size 0
+	text-transform uppercase
+	position relative
+	bottom 95%//bottom 250px
+	line-height 145px
+	margin auto
+	transition all 0.3s ease-in-out 0s
+	
+.title-overlay 
+	background #FFF
+	height 305px
+	width 620px
+	position absolute
+	bottom -400px//bottom -85px
+	transform rotate(335deg)
+	transition bottom 0.3s ease-in-out 0s
+	
+.category-title
+	color #FFF //#000
+	position absolute
+	bottom 50px
+	margin 0
+	font-size 40px
+	text-transform uppercase
+	font-weight 700
+	padding 0 0
+	text-align center
+	width 80%
+	font-weight 700
+	transition all 0.2s linear 0s
+
+.ca-nav
+	position absolute
+	top 70px
+	left 0
+	z-index 999
+	
+	span
+		background rgba(0, 0, 0, 0.6)
+		color #FFF
+		border-radius 50%
+		padding .5em
+		margin .5em
+		cursor pointer
+
+.categories-content
+	float left
+	width 100%
+.portafolio
+	min-height 300px
+	background rgba(0, 0, 0, 0.9)
+	clearfix()
+
+	&.cat 
+		.element
+			height 225px
+			&.portrait
+			&.image-feature 
+				height 450px
+			&.landscape
+				max-height 225px
+	&.prod 
+		.element
+			height 440px
+			
+		
+	.inner-element
+		position: relative
+		height 100%
+		overflow hidden
+		&:hover
+			.category-overlay 
+				background rgba(0, 0, 0, 0)
+				transition all 0.5s ease 0s
+			.category-viewmore 
+				transform scale(1,1)
+				transition all 0.4s ease 0s
+				
+				
+				
+	.category-image
+		position relative
+		height 100%
+	.category-overlay
+		width 100%
+		height 100%
+		top 0
+		bottom 0
+		background rgba(0, 0, 0, 0.6)
+		position absolute
+		transition all 0.5s ease 0s
+	.category-title
+		position absolute
+		font-size 20px
+		width 90%
+		padding 0 5%
+		bottom 35px
+		text-align center
+		margin 0
+		line-height 30px
+		a 
+			color #FFF
+	.category-view
+		text-align center
+		margin 0
+		position absolute
+		width 100%
+	.category-viewmore
+		height 90px
+		width 90px
+		line-height 90px
+		font-size 19px
+		background rgba(0, 0, 0, 0.6)
+		color #FFF
+		text-align center
+		display inline-block
+		border-radius 50%
+		transform scale(0)
+		transition all 0.4s ease 0s
+
+	.product
+		height 100%
+		position relative
+		overflow hidden
+		&:hover
+			.product-title-display
+				bottom -50px
+				transition all 0.3s ease 0s
+			.product-info
+				bottom 0
+				transition all 0.3s ease 0s
+			.product-details
+				transform scale(1,1)
+				transition all 0.4s ease 0s
+				
+				
+		a 
+			color #FFF
+		h2 
+			margin 0
+			font-size 16px
+			width 90%
+			padding 0 5%
+			text-align center
+			line-height 25px
+			
+				
+	.product-image
+		height 100%
+		position relative
+
+		img 
+			max-width none
+			position relative
+	.product-title-display
+		position absolute
+		bottom 25px
+		transition all 0.3s ease 0s
+	
+	.product-info
+		position absolute
+		width 90%
+		padding 15px 5%
+		background #000
+		bottom -50%
+		color #FFF
+		text-align center
+		transition all 0.3s ease 0s
+	
+	.product-s-description
+		margin-bottom 6px
+		margin-top 0
+		padding 0
+		font-size 14px
+
+	.product-price
+		margin 0
+		
+		span
+			font-size 18px
+	.product-view
+		text-align center
+		margin 0
+		position absolute
+		width 100%
+		top 25%
+	.product-details
+		background #000
+		height 70px
+		width 70px
+		line-height 70px
+		font-size 19px
+		color #FFF
+		text-align center
+		display inline-block
+		border-radius 50%
+		transform scale(0)
+		transition all 0.4s ease 0s
+		padding 0
+		border none
+
+		i 
+			font-size 22px
+.productdetails
+	background #FFF
+	
+
+	clearfix()
+	h1 
+		font-size 22px
+		margin 0 0 6px
+		padding 0
+		
+
+	.main-image
+		width 100%
+		text-align left
+		overflow hidden
+		position relative
+		img 
+			width auto
+			max-height none
+			max-width none
+			position relative
+			min-width 100%
+	.product-info
+		padding-top 100px
+	.product-inner
+		padding-right 60px
+	.product-name
+		float left
+		font-size 36px
+		color #000
+		margin-bottom 20px
+	.product-price
+		margin 0 0 15px
+		clear both
+		display block
+		font-size 24px
+		color #000
+	.product-short-description
+		margin 0 0 15px
+		padding 0
+	.other-image
+		font-size 18px
+		color #000
+		padding 5px 0
+	.additional-images
+		margin 10px 0
+		
+		img 
+			margin-right 8px
+			width 50px
+			height auto
+			max-width 100%
+			cursor pointer
+
+.page 
+	padding 75px 75px 0 75px
+	
+	address
+		margin-bottom 40px
+.intro
+	font-size 14px
+	text-transform uppercase
+	margin-bottom 25px
+.bg_white
+	background rgba(255, 255, 255, 0.3)
+	//font-size 14px
+	line-height 25px
+	padding 30px
+	margin-top 0
+	overflow hidden
+.logo-about
+	width 150px
+	margin 0 auto
+.form-contact
+	label
+		background #FFF
+		font-size 12px
+		text-align center
+		height 45px
+		line-height 45px
+		color #000
+		margin-bottom 30px
+		display block
+	
+	input
+	textarea
+		width 92%
+		padding 0 3%
+		border-radius 0
+		color #000
+		font-size 13px
+		height 45px
+		line-height 45px
+		border none
+		background #FFF
+		margin-bottom 30px
+		margin-left 2%
+	textarea
+		height 110px
+		margin 0
+		width 94%
+
+	.btn
+		margin 20px 0 0
+		color #FFF
+		font-size 14px
+		border none
+		border-radius 0
+		padding 5px 15px
+		float right
+		box-shadow none
+		background fusia
+		text-transform uppercase
+		text-shadow none
+		transition all 0.3s linear 0
+		border-radius 0
+		width auto
+		line-height 0
+
+		&:hover
+			background naranja
+
+
+.label-container
+.input-container
+	float left
+	width 100%
+	box-sizing border-box
+	margin 0
+
+.pagination-container
+	position fixed
+	bottom 0
+	right 0
+	z-index 999
+	
+.pagination 
+	li 
+		display inline-block
+		background #EEE
+		span
+		a 
+			display block
+			padding .8em
+			color #000
+			text-decoration none
+			font-weight 700
+		&:hover
+			background naranja2
+	.active
+		background naranja2	
+
+.flash-message
+	padding .3em
+	background #FFF
+
+.alert-success
+	background #CEB
+.alert-danger
+	background #F36674	
+.clear 
+	clear both
+
+.floatleft
+	float left
+
+.align-center
+	text-align center		
+		
+			
+		
+.open-menu
+	.section-left
+		transform translateX(0)
+.open-search
+	header
+		right 0
+	.search-container
+		
+		input
+			opacity 1
+			
+	
+
+		
+@import "responsive.styl"	

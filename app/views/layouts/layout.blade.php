@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        
+        <title>@yield('meta-title','Fashion Factory | Inicio')</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" href="favicon.ico">
+        <link href="//fonts.googleapis.com/css?family=Lato:100,300,700" rel="stylesheet" type="text/css">
+        
+        <link rel="stylesheet" href="/css/isotope.css">
+        <link rel="stylesheet" href="/css/lightbox.css">
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <header class="fixed">
+            <div class="container">
+                 <a href="#" class="search"><span class="icon-search"></span></a>
+                 {{ Form::open(['url' => 'search','method' => 'get','class'=>'form-search']) }}
+                       <div class="search-container">
+                                             
+                        {{ Form::text('q',null,['class'=>'form-control','placeholder'=>'Buscar'])}}
+                       
+                        </div>
+
+                 {{ Form::close() }}   
+                 
+                 <div id="btn_mobile"><span class="icon-menu"></span></div>
+            </div>
+           
+        </header>
+        <section class="wrapper">
+            <div class="container">
+                <aside class="section-left">
+                    
+                    <a href="/" class="logo"><img src="/img/logo.svg" alt="Fashion Factory" /></a>
+                
+                    @include('layouts/partials/_navbar')
+
+                    <div class="redes">
+                        <a href="#" class="icon icon-facebook" title="Facebook"></a>
+                        <a href="#" class="icon icon-twitter" title="Twitter"></a>
+                        <a href="#" class="icon icon-libermall" title="Libermall"></a>
+                    </div>
+                    
+                    
+                </aside>
+                <section class="main">
+                
+                    @yield('content')
+                                  
+                </section>
+            </div>
+        </section>
+        
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
+       
+        <script src="/js/vendor/jquery.touchSwipe.min.js"></script>
+        <script src="/js/vendor/jquery.easing.1.3.js"></script>
+        <script src="/js/vendor/jquery.mousewheel.min.js"></script>
+        <script src="/js/vendor/jquery.contentcarousel.js"></script>
+        <script src="/js/vendor/imagesloaded.min.js"></script>
+        <script src="/js/vendor/jquery.isotope.min.js"></script>
+        <script src="/js/vendor/lightbox.min.js"></script>
+        <script src="/js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+           //$('.carousel').swipe();
+           /* (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');*/
+        </script>
+    </body>
+</html>
+

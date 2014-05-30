@@ -1,0 +1,51 @@
+body{
+	padding-top: 50px;
+}
+.flash-message{
+	margin-top: 20px;
+}
+.table-responsive
+{
+	margin-top: 20px;
+}
+.filtros .form-group .controls
+{
+	display: inline-block;
+	vertical-align: top;
+}
+
+#container-gallery #gallery{
+	margin:0;padding:0;
+}
+
+#container-gallery #gallery li{
+	display:inline-block;
+	vertical-align:top;
+	border:5px solid #fff;
+	margin:5px;
+	position: relative;
+}
+
+#container-gallery #gallery li .delete{
+	cursor:pointer;
+	position:absolute;
+	color: red;
+	top: 0;
+	left: 0;
+
+}
+.pagination-container
+{
+	text-align: center;
+}
+table form {
+	display: inline-block;
+	margin-right: -2px;
+}
+.error
+{
+	background: #F36658;
+	padding: 0.3em;
+	color: #FFF;
+}
+					
