@@ -154,4 +154,126 @@ class CategoriesController extends \BaseController {
 			]);;
 	}
 
+
+	/**
+	 * published.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function feat($id)
+	{
+		
+		$this->categoryRepository->update_feat($id, 1);
+		return \Redirect::route('admin.categories.index');
+	}
+
+	/**
+	 * Unpublished.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function unfeat($id)
+	{
+		
+		$this->categoryRepository->update_feat($id, 0);
+		return \Redirect::route('admin.categories.index');
+	}
+
+
+	/**
+	 * published.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function pub($id)
+	{
+		
+		$this->categoryRepository->update_state($id, 1);
+		return \Redirect::route('admin.categories.index');
+	}
+
+	/**
+	 * Unpublished.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function unpub($id)
+	{
+		
+		$this->categoryRepository->update_state($id, 0);
+		return \Redirect::route('admin.categories.index');
+	}
+
+
+	/**
+	 * Move the specified page up.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function up($id)
+	{
+		return $this->move($id, 'before');
+	}
+
+	/**
+	 * Move the specified page down.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function down($id)
+	{
+		return $this->move($id, 'after');
+	}
+
+	/**
+	 * Move the page.
+	 *
+	 * @param  int $id
+	 * @param  'before'|'after' $dir
+	 *
+	 * @return Response
+	 */
+	protected function move($id, $dir)
+	{
+		$category =  $this->categoryRepository->findById($id);
+		$response = \Redirect::route('admin.categories.index');
+
+		if (!$category->isRoot())
+		{
+			$sibling = $dir === 'before' ? $category->getPrevSibling() : $category->getNextSibling();
+
+			if ($sibling)
+			{
+				$category->$dir($sibling);
+
+				if ($category->save())
+				{
+					return $response->withSuccess([
+						'flash_message' => 'The vategory has been successfully moved!',
+						'flash_type' => 'alert-success'
+						]);
+				}
+
+				return $response->withError('Failed to save the category while moving.');
+			}
+		}
+
+		return $response->with([
+				'flash_message' => 'The category did not move.',
+				'flash_type' => 'alert-warning'
+			]);
+	}
+
 }

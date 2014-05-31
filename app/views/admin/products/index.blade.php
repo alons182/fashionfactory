@@ -60,27 +60,18 @@
                     </td>
                     <td>{{ $product->created_at }}</td>
                     <td>
-                        {{ Form::open(['route' => ['update_product_state', $product->id],'method' => 'post']) }}
                             
-                            @if ($product->published == 1) 
-                                <button type="submit"  class="btn btn-default btn-xs" ><i class="glyphicon glyphicon-ok"></i></button>
+                            @if ($product->published) 
+                                <button type="submit"  class="btn btn-default btn-xs" form="form-pub-unpub" formaction="{{ URL::route("products.unpub", [$product->id]) }}"><i class="glyphicon glyphicon-ok"></i></button>
                             @else 
-                                <button type="submit"  class="btn btn-default btn-xs " ><i class="glyphicon glyphicon-remove"></i></button>
+                                <button type="submit"  class="btn btn-default btn-xs "form="form-pub-unpub" formaction="{{ URL::route("products.pub", [$product->id]) }}" ><i class="glyphicon glyphicon-remove"></i></button>
                             @endif 
                              
-                             {{ Form::hidden('published', $product->published) }}
-                           
-                        {{ Form::close() }}
                     </td>
                     <td>
-                                             
-                       
-                    {{ Form::open(['route' => ['admin.products.destroy', $product->id ], 'method' => 'delete', 'data-confirm' => 'Are you sure?']) }}
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    {{ Form::close() }}
-                         
-
-                        
+                    
+                       <button type="submit" class="btn btn-danger btn-sm" form="form-delete" formaction="{{ URL::route("admin.products.destroy", [$product->id]) }}">Delete</button>                      
+                                                              
                     </td>
                     
                 </tr>
@@ -99,5 +90,7 @@
      
     </div>  
 
+{{ Form::open(array('method' => 'post', 'id' => 'form-pub-unpub')) }}{{ Form::close() }}
+{{ Form::open(['method' => 'delete', 'id' =>'form-delete','data-confirm' => 'Are you sure?']) }}{{ Form::close() }}
 
 @stop

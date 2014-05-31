@@ -53,39 +53,41 @@
                     <td>{{ str_limit($category->description, 20) }}</td>
                     <td>{{ $category->created_at }}</td>
                     <td>
-                        {{ Form::open(['route' => ['update_category_state', $category->id],'method' => 'post']) }}
-                            
-                            @if ($category->published == 1) 
-                                <button type="submit"  class="btn btn-default btn-xs" ><i class="glyphicon glyphicon-ok"></i></button>
+     
+                            @if ($category->published) 
+                                <button type="submit"  class="btn btn-default btn-xs" form="form-pub-unpub" formaction="{{ URL::route("categories.unpub", [$category->id]) }}"><i class="glyphicon glyphicon-ok"></i></button>
                             @else 
-                                <button type="submit"  class="btn btn-default btn-xs " ><i class="glyphicon glyphicon-remove"></i></button>
+                                <button type="submit"  class="btn btn-default btn-xs " form="form-pub-unpub" formaction="{{ URL::route("categories.pub", [$category->id]) }}"><i class="glyphicon glyphicon-remove"></i></button>
+                            @endif 
+            
+                            
+                            @if ($category->featured) 
+                                <button type="submit"  class="btn btn-default btn-xs" form="form-feat-unfeat" formaction="{{ URL::route("categories.unfeat", [$category->id]) }}" ><i class="glyphicon glyphicon-star"></i></button>
+                            @else 
+                                <button type="submit"  class="btn btn-default btn-xs " form="form-feat-unfeat" formaction="{{ URL::route("categories.feat", [$category->id]) }}"><i class="glyphicon glyphicon-star-empty"></i></button>
                             @endif 
                              
-                             {{ Form::hidden('published', $category->published) }}
                            
-                        {{ Form::close() }}
-
-                         {{ Form::open(['route' => ['update_category_state', $category->id],'method' => 'post']) }}
-                            
-                            @if ($category->featured == 1) 
-                                <button type="submit"  class="btn btn-default btn-xs" ><i class="glyphicon glyphicon-star"></i></button>
-                            @else 
-                                <button type="submit"  class="btn btn-default btn-xs " ><i class="glyphicon glyphicon-star-empty"></i></button>
-                            @endif 
-                             
-                             {{ Form::hidden('featured', $category->featured) }}
-                           
-                        {{ Form::close() }}
                     </td>
                     
                     <td>
-                                             
                        
-                    {{ Form::open(['route' => ['admin.categories.destroy', $category->id ], 'method' => 'delete', 'data-confirm' => 'Are you sure?']) }}
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                    {{ Form::close() }}
+                        <button type="submit" class="btn btn-danger btn-sm" form="form-delete" formaction="{{ URL::route("admin.categories.destroy", [$category->id]) }}">Delete</button>
+                   
                          
+                    @if ($category->isRoot())
+                       
+                    @else
+                        <div class="btn-group actions">
+                        @foreach (array('up', 'down') as $key)
+                            <button class="btn btn-xs btn-link" type="submit" title="Move {{$key}}" form="form-up-down" formaction="{{ URL::route("categories.$key", array($category->id)) }}">
+                               <i class="glyphicon glyphicon-chevron-{{ $key }}"></i> 
+                            </button>
+                        @endforeach
 
+                           
+                        </div>
+                    @endif
                         
                     </td>
                     
@@ -105,5 +107,10 @@
      
     </div>  
 
+{{-- This form is used for general post requests --}}
+{{ Form::open(['method' => 'post', 'id' => 'form-up-down']) }}{{ Form::close() }}
+{{ Form::open(['method' => 'post', 'id' => 'form-pub-unpub']) }}{{ Form::close() }}
+{{ Form::open(['method' => 'post', 'id' => 'form-feat-unfeat']) }}{{ Form::close() }}
+{{ Form::open(['method' => 'delete', 'id' =>'form-delete','data-confirm' => 'Are you sure?']) }}{{ Form::close() }}
 
 @stop

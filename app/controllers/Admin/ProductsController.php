@@ -130,21 +130,30 @@ class ProductsController extends \BaseController {
 	}
 
 	/**
-	 * Update the state of the product.
-	 * PUT /categories/{id}
+	 * published.
 	 *
-	 * @param  int  $id
+	 * @param  int $id
+	 *
 	 * @return Response
 	 */
-	public function update_state_feat($id)
+	public function pub($id)
 	{
 		
-		$published = Input::get('published');
-		
-		$state = ($published) ? 0 : 1;  
-		
-		$this->productRepository->update_state($id, $state);
+		$this->productRepository->update_state($id, 1);
+		return \Redirect::route('admin.products.index');
+	}
 
+	/**
+	 * Unpublished.
+	 *
+	 * @param  int $id
+	 *
+	 * @return Response
+	 */
+	public function unpub($id)
+	{
+		
+		$this->productRepository->update_state($id, 0);
 		return \Redirect::route('admin.products.index');
 	}
 

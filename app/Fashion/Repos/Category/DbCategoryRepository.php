@@ -17,6 +17,7 @@ class DbCategoryRepository extends DbRepository implements CategoryRepository{
 
 	public function store($data)
 	{
+		
 		 $data['slug'] = Str::slug($data['name']);
 
 		 $data['image'] = ( $data['image'] ) ? $this->storeImage($data['image'], $data['name'], 'categories', 200, null) : ''; 

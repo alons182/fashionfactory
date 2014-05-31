@@ -35,6 +35,7 @@ abstract class DbRepository
 	}
 	public function update_state($id, $state)
 	{
+		
 		$model = $this->findById($id);
 		$model->published = $state;
 		$model->save();

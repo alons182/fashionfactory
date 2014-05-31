@@ -28,11 +28,24 @@ Route::post('users/register', ['as'=> 'user_register.store', 'uses'=>'App\Contro
 Route::resource('users', 'App\Controllers\Admin\UsersController');
 
 # categories
-Route::post('categories/{category}',['as' => 'update_category_state', 'uses' => 'App\Controllers\Admin\CategoriesController@update_state_feat']);
+foreach (['up', 'down','pub', 'unpub','feat','unfeat'] as $key) 
+    {    
+        Route::post("categories/{category}/$key", array(
+            'as' => "categories.$key",
+            'uses' => "App\Controllers\Admin\CategoriesController@$key",
+        ));
+    }
 Route::resource('categories', 'App\Controllers\Admin\CategoriesController');
 
 # products       
-Route::post('products/{product}',['as' => 'update_product_state', 'uses' => 'App\Controllers\Admin\ProductsController@update_state_feat']);
+
+foreach (['pub', 'unpub'] as $key) 
+    {    
+        Route::post("products/{product}/$key", array(
+            'as' => "products.$key",
+            'uses' => "App\Controllers\Admin\ProductsController@$key",
+        ));
+    }
 Route::resource('products', 'App\Controllers\Admin\ProductsController');
 
 Route::post('photos', ['as' => 'save_photo', 'uses' => 'App\Controllers\Admin\PhotosController@store']);
