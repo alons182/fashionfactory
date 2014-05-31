@@ -4,6 +4,7 @@
 use Fashion\Repos\Product\ProductRepository;
 use Fashion\Repos\Category\CategoryRepository;
 use Fashion\Repos\Photo\PhotoRepository;
+use Fashion\Services\Search\Search;
 
 class ProductsController extends \BaseController {
 
@@ -51,7 +52,6 @@ class ProductsController extends \BaseController {
 		
 		return  View::make('products.index')->withProducts($products)->withSearch($search['q']); 
 	}
-
 
 	/**
 	 * Display the specified resource.
