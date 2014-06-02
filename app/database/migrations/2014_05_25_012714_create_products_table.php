@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration {
 			$table->string('name');
 			$table->string('slug');
 			$table->text('description')->nullable();
-			$table->double('price', 15, 8);
+			$table->double('price', 18, 2);
 			$table->string('image')->nullable();
 			$table->boolean('published')->default(1);
 			$table->boolean('featured')->default(0);

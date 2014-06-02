@@ -13,6 +13,10 @@ abstract class DbRepository
 		$this->model = $model;
 	}
 
+	public function getLasts()
+	{
+		return $this->model->orderBy('created_at', 'desc');
+	}
 	public function findById($id)
 	{
 		return $this->model->findOrFail($id);

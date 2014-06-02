@@ -1,6 +1,23 @@
 <?php namespace App\Controllers\Admin;
 
+use Fashion\Repos\Category\CategoryRepository;
+use Fashion\Repos\Product\ProductRepository;
+use Fashion\Repos\User\UserRepository;
+
 class DashboardController extends \BaseController {
+
+	
+	protected $categoryRepository;  
+
+	function __construct( CategoryRepository $categoryRepository, ProductRepository $productRepository, UserRepository $userRepository)
+	{
+		$this->categoryRepository = $categoryRepository;
+		$this->productRepository = $productRepository;
+		$this->userRepository = $userRepository;
+		$this->limit = 6;
+	}
+
+
 
 	/**
 	 * Display a listing of the resource.
@@ -10,7 +27,11 @@ class DashboardController extends \BaseController {
 	 */
 	public function index()
 	{
-		return \View::make('admin.dashboard.index');
+		$categories = $this->categoryRepository->getLasts()->withoutRoot()->withDepth()->limit($this->limit)->get();
+		$products = $this->productRepository->getLasts()->limit($this->limit)->get();
+		$users = $this->userRepository->getLasts()->limit($this->limit)->get();
+		
+		return \View::make('admin.dashboard.index')->withCategories($categories)->withProducts($products)->withUsers($users);
 	}
 
 	/**
