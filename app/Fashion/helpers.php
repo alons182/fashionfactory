@@ -2,7 +2,7 @@
 
 function errors_for($attribute, $errors)
 {
-	return $errors->first($attribute,'<span class="error">:message</span>');
+	return $errors->first($attribute,'<span class="error label label-warning">:message</span>');
 }
 
 function get_depth($depth)

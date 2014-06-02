@@ -42,12 +42,7 @@ table form {
 	display: inline-block;
 	margin-right: -2px;
 }
-.error
-{
-	background: #F36658;
-	padding: 0.3em;
-	color: #FFF;
-}
+
 .dashboard .list-group .badge
 {
 	background-color: #5CB85C;
