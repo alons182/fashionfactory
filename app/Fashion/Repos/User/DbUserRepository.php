@@ -31,6 +31,12 @@ class DbUserRepository extends DbRepository implements UserRepository{
 		return $users;
 	}
 
+	public function getLasts()
+	{
+		return $this->model->orderBy('users.created_at', 'desc')
+									->limit(6)->get(['users.id','users.username']);
+	}
+
 
 
 }

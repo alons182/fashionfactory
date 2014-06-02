@@ -56,6 +56,11 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 
 	    return $this->model;
 	}
+	public function getLasts()
+	{
+		return $this->getProducts()->orderBy('products.created_at', 'desc')
+									->limit(6)->get(['products.id','products.name']);
+	}
 
 	public function store($data)
 	{

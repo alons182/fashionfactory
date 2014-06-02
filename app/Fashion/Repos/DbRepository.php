@@ -17,6 +17,10 @@ abstract class DbRepository
 	{
 		return $this->model->orderBy('created_at', 'desc');
 	}
+	public function getTotal()
+	{
+		return $this->model->count();
+	}
 	public function findById($id)
 	{
 		return $this->model->findOrFail($id);

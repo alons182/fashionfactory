@@ -73,6 +73,14 @@ class DbCategoryRepository extends DbRepository implements CategoryRepository{
 	    return $this->model;
 	}
 
+	public function getLasts()
+	{
+		return $this->getCategories()->join('category_product', 'category_product.category_id', '=','categories.id')
+									->groupBy('categories.name')
+									->orderBy('categories.created_at', 'desc')
+									->limit(6)->get(['categories.id','categories.name', \DB::raw('count(*) as products_count')]);
+	}
+
 	public function getParents($root = true)
 	{
 		$all = ($root) ? $this->model->select('id', 'name')->withDepth()->get() : $this->model->withoutRoot()->select('id', 'name')->withDepth()->get();

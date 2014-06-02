@@ -27,11 +27,17 @@ class DashboardController extends \BaseController {
 	 */
 	public function index()
 	{
-		$categories = $this->categoryRepository->getLasts()->withoutRoot()->withDepth()->limit($this->limit)->get();
-		$products = $this->productRepository->getLasts()->limit($this->limit)->get();
-		$users = $this->userRepository->getLasts()->limit($this->limit)->get();
+		$categories = $this->categoryRepository->getLasts();
+		$total_categories = $this->categoryRepository->getTotal();
 		
-		return \View::make('admin.dashboard.index')->withCategories($categories)->withProducts($products)->withUsers($users);
+		$products = $this->productRepository->getLasts();
+		$total_products = $this->productRepository->getTotal();
+
+		$users = $this->userRepository->getLasts();
+		$total_users = $this->userRepository->getTotal();
+		//return $categories;
+
+		return \View::make('admin.dashboard.index')->withCategories($categories)->withTc($total_categories)->withProducts($products)->withTp($total_products)->withUsers($users)->withTu($total_users);
 	}
 
 	/**
