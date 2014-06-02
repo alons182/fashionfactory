@@ -9,9 +9,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         <link href="//fonts.googleapis.com/css?family=Lato:100,300,700" rel="stylesheet" type="text/css">
         
-        <link rel="stylesheet" href="/css/isotope.css">
-        <link rel="stylesheet" href="/css/lightbox.css">
-        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/bundle.css">
         <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
@@ -56,17 +54,7 @@
         </section>
         
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.11.0.min.js"><\/script>')</script>
-       
-        <script src="/js/vendor/jquery.touchSwipe.min.js"></script>
-        <script src="/js/vendor/jquery.easing.1.3.js"></script>
-        <script src="/js/vendor/jquery.mousewheel.min.js"></script>
-        <script src="/js/vendor/jquery.contentcarousel.js"></script>
-        <script src="/js/vendor/imagesloaded.min.js"></script>
-        <script src="/js/vendor/jquery.isotope.min.js"></script>
-        <script src="/js/vendor/lightbox.min.js"></script>
-        <script src="/js/main.js"></script>
+        <script src="/js/bundle.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>

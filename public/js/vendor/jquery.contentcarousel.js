@@ -1,4 +1,4 @@
-(function($) {
+;(function($) {
 	var	aux		= {
 			// navigates left / right
 			navigate	: function( dir, $el, $wrapper, opts, cache ) {
