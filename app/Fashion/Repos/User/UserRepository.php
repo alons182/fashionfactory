@@ -9,5 +9,7 @@ interface UserRepository {
 	public function update($id, $data);
 	public function destroy($id);
 	public function search($search);
+	public function getLasts();
+	
 	
 }

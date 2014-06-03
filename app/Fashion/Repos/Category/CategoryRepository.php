@@ -9,6 +9,7 @@ interface CategoryRepository {
 	public function update($id, $data);
 	public function destroy($id);
 	public function getCategories();
+	public function getLasts();
 	public function getParents();
 	public function search($search);
 	

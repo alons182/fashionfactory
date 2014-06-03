@@ -9,6 +9,10 @@ interface ProductRepository {
 	public function update($id, $data);
 	public function destroy($id);
 	public function search($search);
+	public function getProducts();
+	public function getLasts();
+	public function sync_categories($product, $categories);
+	public function sync_photos($product, $data);
 	
 
 	

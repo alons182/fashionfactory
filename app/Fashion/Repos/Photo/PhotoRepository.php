@@ -9,6 +9,7 @@ interface PhotoRepository {
 	public function getPhotos($id);
 	
 	
+	
 
 	
 }
