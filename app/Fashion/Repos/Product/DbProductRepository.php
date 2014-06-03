@@ -5,14 +5,16 @@ use Category;
 use Photo;
 use File;
 use Fashion\Repos\DbRepository;
+use Fashion\Repos\Category\CategoryRepository;
 
 class DbProductRepository extends DbRepository implements ProductRepository{
 
 	protected $model;
 
-	function __construct(Product $model)
+	function __construct(Product $model, CategoryRepository $categoryRepository)
 	{
 		$this->model = $model;
+		$this->categoryRepository = $categoryRepository;
 		
 	}
 
@@ -27,7 +29,8 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 		
 		if(isset($search['cat']) && !empty($search['cat']))
 		{
-			$category = Category::findOrFail($search['cat']);
+			
+			$category = $this->categoryRepository->findById($search['cat']);
 
 			$products = $category->products();
 			
