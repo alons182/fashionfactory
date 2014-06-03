@@ -12,61 +12,61 @@ var gulp        = require('gulp'),
 
 gulp.task('js', function () {
   gulp.src([
-    './js/vendor/jquery-1.11.0.min.js',
-    './js/vendor/jquery.isotope.min.js',
-    './js/vendor/jquery.contentcarousel.js',
-    './js/vendor/jquery.touchSwipe.min.js',
-    './js/vendor/jquery.easing.1.3.js',
-    './js/vendor/jquery.mousewheel.min.js',
-    './js/vendor/imagesloaded.min.js',
-    './js/vendor/lightbox.min.js',
-    './js/main.js'
+    './public/js/vendor/jquery-1.11.0.min.js',
+    './public/js/vendor/jquery.isotope.min.js',
+    './public/js/vendor/jquery.contentcarousel.js',
+    './public/js/vendor/jquery.touchSwipe.min.js',
+    './public/js/vendor/jquery.easing.1.3.js',
+    './public/js/vendor/jquery.mousewheel.min.js',
+    './public/js/vendor/imagesloaded.min.js',
+    './public/js/vendor/lightbox.min.js',
+    './public/js/main.js'
    
     ])
     //.pipe(browserify())
     .pipe(uglify({ compress: true }))
     .pipe(stripDebug())
     .pipe(concat('bundle.js'))
-    .pipe(gulp.dest('./js'));
+    .pipe(gulp.dest('./public/js'));
  
 });
 
 gulp.task('js_admin', function () {
   gulp.src([
-    './js/vendor/jquery-1.11.0.min.js',
-    './js/vendor/handlebars-v1.3.0.js',
-    './js/vendor/lightbox.min.js',
-    './js/vendor/ajaxupload.js',
-    './js/admin.js'
+    './public/js/vendor/jquery-1.11.0.min.js',
+    './public/js/vendor/handlebars-v1.3.0.js',
+    './public/js/vendor/lightbox.min.js',
+    './public/js/vendor/ajaxupload.js',
+    './public/js/admin.js'
    
     ])
     //.pipe(browserify())
     .pipe(uglify({ compress: true }))
     .pipe(stripDebug())
     .pipe(concat('bundle_admin.js'))
-    .pipe(gulp.dest('./js'));
+    .pipe(gulp.dest('./public/js'));
  
 });
 
 gulp.task('css', function () {
-  gulp.src(['./css/isotope.css','./css/lightbox.css','./css/main.css'])
+  gulp.src(['./public/css/isotope.css','./public/css/lightbox.css','./public/css/main.css'])
     .pipe(minifyCSS({ keepSpecialComments: '*', keepBreaks: '*'}))
     .pipe(concat('bundle.css'))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('css_admin', function () {
-  gulp.src(['./css/lightbox.css','./css/admin.css'])
+  gulp.src(['./public/css/lightbox.css','./public/css/admin.css'])
     .pipe(minifyCSS({ keepSpecialComments: '*', keepBreaks: '*'}))
     .pipe(concat('bundle_admin.css'))
-    .pipe(gulp.dest('./css'));
+    .pipe(gulp.dest('./public/css'));
 });
 
 gulp.task('watch', function () {
-   gulp.watch(['./js/main.js'],['js']);
-    gulp.watch(['./js/admin.js'],['js_admin']);
-   gulp.watch(['./css/main.css'],['css']);
-   gulp.watch(['./css/admin.css'],['css_admin']);
+   gulp.watch(['./public/js/main.js'],['js']);
+    gulp.watch(['./public/js/admin.js'],['js_admin']);
+   gulp.watch(['./public/css/main.css'],['css']);
+   gulp.watch(['./public/css/admin.css'],['css_admin']);
    
 });
 
