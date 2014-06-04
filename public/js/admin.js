@@ -35,7 +35,7 @@ $(function () {
        
      chkProducts.on('click',function(e) {
         
-        (verificaChkActivo(chkProducts)) ? btnDeleteMultiple.show('slow') : btnDeleteMultiple.hide('fast');
+        (verificaChkActivo(chkProducts)) ? btnDeleteMultiple.show('fast') : btnDeleteMultiple.hide('fast');
 
 
      });
