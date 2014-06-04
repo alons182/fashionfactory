@@ -34,6 +34,9 @@ body{
 	left: 0;
 
 }
+.main_image{
+	margin-bottom: 10px;
+}
 .pagination-container
 {
 	text-align: center;
