@@ -46,6 +46,7 @@ foreach (['pub', 'unpub'] as $key)
             'uses' => "App\Controllers\Admin\ProductsController@$key",
         ));
     }
+Route::post('products/delete', ['as'=> 'destroy_multiple', 'uses'=>'App\Controllers\Admin\ProductsController@destroy_multiple']);
 Route::resource('products', 'App\Controllers\Admin\ProductsController');
 
 Route::post('photos', ['as' => 'save_photo', 'uses' => 'App\Controllers\Admin\PhotosController@store']);

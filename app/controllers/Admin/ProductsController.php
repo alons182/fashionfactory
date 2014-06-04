@@ -174,4 +174,19 @@ class ProductsController extends \BaseController {
 			]);
 	}
 
+	public function destroy_multiple()
+	{
+		$products_id = Input::get('chk_product');
+
+		foreach ($products_id as $id) {
+			$this->productRepository->destroy($id);
+		}
+		
+		return \Redirect::route('admin.products.index')->with([
+				'flash_message' => 'Products Delete',
+				'flash_type' => 'alert-success'
+			]);
+		
+	}
+
 }

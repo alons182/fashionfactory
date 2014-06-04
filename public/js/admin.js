@@ -5,8 +5,9 @@ $(function () {
         filters = $(".filtros"),
         gallery = $('#gallery'),
         infoBox = $('#InfoBox'),
-        photos  = 0;
-
+        photos  = 0,
+        chkProducts = $('.chk-product'),
+        btnDeleteMultiple = $('.delete-multiple');
 
 	$("form[data-confirm]").submit(function() {
         if ( ! confirm($(this).attr("data-confirm"))) {
@@ -31,6 +32,33 @@ $(function () {
 
     });
 
+       
+     chkProducts.on('click',function(e) {
+        
+        (verificaChkActivo(chkProducts)) ? btnDeleteMultiple.show('slow') : btnDeleteMultiple.hide('fast');
+
+
+     });
+
+     function verificaChkActivo (chks) {
+        var state = false;
+        
+        chks.each(function(){ 
+            
+            if(this.checked)
+            {
+              
+             state = true;
+
+             
+            }
+
+        });
+
+        return state;
+     }
+
+   
         
 
     

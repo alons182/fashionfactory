@@ -8,9 +8,13 @@
 	
 	<div class="table-responsive">
         {{ link_to_route('admin.products.create','New product',null,['class'=>'btn btn-success']) }}
+        
+        {{ Form::open(['route' =>['destroy_multiple'],'method' => 'post', 'id' =>'form-delete-chk','data-confirm' => 'Are you sure?']) }}
+        <button type="submit" class="delete-multiple btn btn-danger btn-sm "><i class="glyphicon glyphicon-trash"></i></button>     
         <table class="table table-striped  ">
         <thead>
             <tr>
+                <th>=</th>
                 <th>#</th>
                 <th>Name</th>
                 <th>Description</th>
@@ -24,6 +28,7 @@
         <tbody>
             @foreach ($products as $product)
                 <tr>
+                    <td>{{ Form::checkbox('chk_product[]', $product->id, null, ['class' => 'chk-product']) }}</td>
                     <td>{{ $product->id }}</td>
                     <td>{{ link_to_route('admin.products.edit', $product->name, $product->id) }}</td>
                     <td>{{ str_limit($product->description, 20) }}</td>
@@ -61,7 +66,7 @@
              
         </tfoot>
     </table>
-
+    {{ Form::close() }}
      
     </div>  
 

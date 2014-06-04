@@ -34,3 +34,4 @@ body{padding-top:50px}
 .pagination-container{text-align:center}
 table form{display:inline-block;margin-right:-2px}
 .dashboard .list-group .badge{background-color:#5CB85C}
+.delete-multiple{margin-top:10px;display:none}
