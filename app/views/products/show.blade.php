@@ -43,13 +43,13 @@
 			</div>
 			@if ( $product->sizes )
 				<div class="product-sizes">
-					 <h3>Tallas: </h3>
+					 <h3>Tallas Disponibles: </h3>
 					 {{ Form::select('sizes', $product->sizes, null , ['class'=>'form-control']) }}
 				</div>
 			@endif
 			@if ( $product->colors )
 				<div class="product-colors">
-					 <h3>Colores:</h3>
+					 <h3>Colores Disponibles:</h3>
 					 <div class="colors">
 					 	@foreach ($product->colors as $color)
 							<div class="color" style="background-color: #{{ $color }};"></div>
