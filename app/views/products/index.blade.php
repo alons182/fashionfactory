@@ -15,7 +15,7 @@
 	                    	@if($product->image)
 	                        	<a href="{{ URL::route('product', [$product->categories->last()->slug, $product->slug]) }}"> <img src="{{ photos_path('products').$product->image }}" alt="{{$product->name}}"></a>
 	                        @else 
-	                        	<a href="{{ URL::route('product', [$product->categories->last()->slug, $product->slug]) }}"> <img src="/img/no-image.jpg" alt="{{$product->name}}"></a>
+	                        	<a href="{{ URL::route('product', [$product->categories->last()->slug, $product->slug]) }}"> <img src="holder.js/481x631/text:No-image" alt="{{$product->name}}"></a>
 	                        @endif
 	                    </div>
 	                    <h2 class="product-title-display">{{ link_to_route('product', $product->name , [$product->categories->last()->slug, $product->slug]) }}</h2>
@@ -26,7 +26,7 @@
 	                        </h2>
 	                        <p class="product-s-description">{{ str_limit($product->description, 50) }}</p>
 	                        <div class="product-price">
-	                            <span>&cent; {{ $product->price }}</span>
+	                            <span>{{ money($product->price, '&cent') }}</span>
 	                        </div>
 	                    </div>
 	                    <div class="product-view">

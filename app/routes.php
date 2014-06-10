@@ -11,9 +11,7 @@ Route::post('admin/login', ['as'=> 'sessions.store', 'uses'=>'SessionsController
 Route::get('admin/logout', ['as'=> 'logout', 'uses'=>'SessionsController@destroy']);
 
 # reset password
-Route::get('password_resets/reset/{token}', 'PasswordResetsController@reset');
-Route::post('password_resets/reset/{token}', 'PasswordResetsController@postReset');
-Route::resource('password_resets', 'PasswordResetsController');
+Route::controller('password', 'RemindersController');
 
 Route::group(['prefix' => 'admin', 'before' => 'auth.admin'], function()
 {
@@ -47,6 +45,7 @@ foreach (['pub', 'unpub'] as $key)
         ));
     }
 Route::post('products/delete', ['as'=> 'destroy_multiple', 'uses'=>'App\Controllers\Admin\ProductsController@destroy_multiple']);
+Route::get('products/list', ['as'=> 'products_list', 'uses'=>'App\Controllers\Admin\ProductsController@list_products']);
 Route::resource('products', 'App\Controllers\Admin\ProductsController');
 
 Route::post('photos', ['as' => 'save_photo', 'uses' => 'App\Controllers\Admin\PhotosController@store']);

@@ -15,7 +15,7 @@
 	                    @if($category->image)
 	                    	<a href="{{ URL::route('products', $category->slug) }}"> <img src="{{ photos_path('categories').$category->image }}" alt="{{$category->name}}"></a>
 	                    @else
-	                    	<a href="{{ URL::route('products', $category->slug) }}"> <img src="/img/no-image.jpg" alt="{{$category->name}}"></a>
+	                    	<a href="{{ URL::route('products', $category->slug) }}"> <img src="holder.js/481x631/text:No-image" alt="{{$category->name}}"></a>
 	                    @endif
 	                </div>
 	                <div class="category-overlay"></div>

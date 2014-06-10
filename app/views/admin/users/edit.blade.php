@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="starter-template">
-	<h1>Update User</h1>
+	<h1>Editar Usuario</h1>
 	{{ Form::model($user, ['method' => 'put', 'route' => ['admin.users.update', $user->id] ]) }}
-		 @include('admin/users/partials/_form',['buttonText' => 'Update User'])
+		 @include('admin/users/partials/_form',['buttonText' => 'Actualizar Usuario'])
 	{{ Form::close() }}
 </div>
 @stop

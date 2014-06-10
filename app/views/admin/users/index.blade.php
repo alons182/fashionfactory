@@ -5,15 +5,15 @@
      @include('admin/users/partials/_search')
 
 	<div class="table-responsive">
-        {{ link_to_route('user_register','New User',null,['class'=>'btn btn-success']) }}
+        {{ link_to_route('user_register','Nuevo Usuario',null,['class'=>'btn btn-success']) }}
         <table class="table table-striped  ">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Type</th>
-                <th>When</th>
+                <th>Tipo</th>
+                <th>Creado</th>
                 <th><i class="icon-cog"></i></th>
             </tr>
         </thead>
@@ -28,8 +28,8 @@
                     <td>
                                              
                        
-                    {{ Form::open(['route' => ['admin.users.destroy', $user->id ], 'method' => 'delete', 'data-confirm' => 'Are you sure?']) }}
-                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    {{ Form::open(['route' => ['admin.users.destroy', $user->id ], 'method' => 'delete', 'data-confirm' => 'Estas seguro?']) }}
+                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
                     {{ Form::close() }}
                          
 

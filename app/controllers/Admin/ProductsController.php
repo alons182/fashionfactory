@@ -78,7 +78,7 @@ class ProductsController extends \BaseController {
 	public function store()
 	{
 		$input = Input::all();
-			
+		
 		$this->registrationForm->validate($input);
 
 		$product = $this->productRepository->store($input);
@@ -99,14 +99,19 @@ class ProductsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+		//return \Product::with('relateds')->find($id);
+		
+
 		$product = $this->productRepository->findById($id);
+
+		$relateds = $this->productRepository->relateds($product);
 		
 		$categories = $this->categoryRepository->getParents();
 		
 		$selectedCategories = $product->categories()->select('categories.id AS id')->lists('id');
 
 		
-		return \View::make('admin.products.edit')->withProduct($product)->withCategories($categories)->withSelected($selectedCategories);
+		return \View::make('admin.products.edit')->withProduct($product)->withCategories($categories)->withSelected($selectedCategories)->withRelateds($relateds);
 	}
 
 	/**
@@ -130,7 +135,7 @@ class ProductsController extends \BaseController {
 	}
 
 	/**
-	 * published.
+	 * published a Product.
 	 *
 	 * @param  int $id
 	 *
@@ -144,7 +149,7 @@ class ProductsController extends \BaseController {
 	}
 
 	/**
-	 * Unpublished.
+	 * Unpublished a Product.
 	 *
 	 * @param  int $id
 	 *
@@ -174,6 +179,13 @@ class ProductsController extends \BaseController {
 			]);
 	}
 
+	/**
+	 * Remove multiple resource from storage.
+	 * DELETE /products/{id}
+	 *
+	 * @param  int  $chk_product (array of ids)
+	 * @return Response
+	 */
 	public function destroy_multiple()
 	{
 		$products_id = Input::get('chk_product');
@@ -186,6 +198,20 @@ class ProductsController extends \BaseController {
 				'flash_message' => 'Products Delete',
 				'flash_type' => 'alert-success'
 			]);
+		
+	}
+
+	/**
+	 * List of products for the modal view of related products.
+	 * GET /products/list
+	 *
+	 * @param  int  exc_id (exclude current id for editing)
+	 * @return Response
+	 */
+	public function list_products()
+	{
+		
+		return $this->productRepository->list_products(input::get('exc_id'));
 		
 	}
 

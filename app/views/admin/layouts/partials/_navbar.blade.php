@@ -12,11 +12,11 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="{{ set_active('admin') }}"><a href="/admin">Home</a></li>
+            <li class="{{ set_active('admin') }}"><a href="/admin">Inicio</a></li>
            @if (! Auth::guest())
-            <li class="{{ set_active('admin/users') }}"><a href="/admin/users">Users</a></li>
-            <li class="{{ set_active('admin/categories') }}"><a href="/admin/categories">Categories</a></li>
-            <li class="{{ set_active('admin/products') }}"><a href="/admin/products">Products</a></li>
+            <li class="{{ set_active('admin/users') }}"><a href="/admin/users">Usuarios</a></li>
+            <li class="{{ set_active('admin/categories') }}"><a href="/admin/categories">Categorias</a></li>
+            <li class="{{ set_active('admin/products') }}"><a href="/admin/products">Productos</a></li>
             <li><a href="/admin/logout">Logout</a></li>
            @else 
               <li class="{{ set_active('admin/login') }}"><a href="/admin/login">Login</a></li>

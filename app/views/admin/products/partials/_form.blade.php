@@ -1,56 +1,143 @@
+<div class="form-group">
+			{{ Form::submit(isset($buttonText) ? $buttonText : 'Crear Producto',['class'=>'btn btn-primary'])}}
+			{{ link_to_route('admin.products.index', 'Cancelar', null, ['class'=>'btn btn-default'])}}
+
+</div>
 <div class="col-xs-12 col-sm-6">
 		@if(isset($product))
 			{{ Form::hidden('product_id',  $product->id) }}
 		@endif		
 		<div class="form-group">
-			{{ Form::label('name','Name:')}}
+			{{ Form::label('name','Nombre:')}}
 			{{ Form::text('name',null,['class'=>'form-control','required'=>'required'])}}
 			{{ errors_for('name',$errors) }}
 			
 
 		</div>
 		<div class="form-group">
-			{{ Form::label('categories','Categories:')}}
+			{{ Form::label('categories','Categorias:')}}
 			{{ Form::select('categories[]', $categories, isset($selected) ? $selected : null , ['multiple' => 'multiple','class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('categories',$errors) }}
 
 		</div>
 		<div class="form-group">
-			{{ Form::label('description','Description:')}}
+			{{ Form::label('description','Descripción:')}}
 			{{ Form::textarea('description',null,['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('description',$errors) }}
 		</div>
-
+		
 		<div class="form-group">
-			{{ Form::label('price','Price:')}}
-			{{ Form::text('price',null,['class'=>'form-control','required'=>'required'])}}
-			{{ errors_for('price',$errors) }}
+			{{ Form::label('price','Precio:')}}
+			<div class="input-group">
+				<span class="input-group-addon">&cent;</span>
+				{{ Form::text('price',isset($product) ? money($product->price, false) : null,['class'=>'form-control','required'=>'required'])}}
+				{{ errors_for('price',$errors) }}
 
+			</div>
+		</div>
+		<div class="form-group">
+			{{ Form::label('promo_price','Precio de Promoción:')}}
+			<div class="input-group">
+				<span class="input-group-addon">&cent;</span>
+				{{ Form::text('promo_price',isset($product) ? money($product->promo_price, false) : null,['class'=>'form-control','required'=>'required'])}}
+				{{ errors_for('promo_price',$errors) }}
+
+			</div>
+		</div>
+		<div class="form-group">
+			{{ Form::label('discount','Descuento:')}}
+			<div class="input-group">
+				<span class="input-group-addon">%</span>
+				{{ Form::text('discount', null,['class'=>'form-control','required'=>'required'])}}
+				{{ errors_for('discount',$errors) }}
+
+			</div>
 		</div>
 
 		<div class="form-group">
-			{{ Form::label('published','Published:')}}
-			{{ Form::select('published', ['1' => 'Yes', '0' => 'No'], null,['class'=>'form-control','required'=>'required']) }}
+			{{ Form::label('published','Publicado:')}}
+			{{ Form::select('published', ['1' => 'Si', '0' => 'No'], null,['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('published',$errors) }}
 
 		</div>
-		<div class="form-group">
-			{{ Form::submit(isset($buttonText) ? $buttonText : 'Create Product',['class'=>'btn btn-primary'])}}
-			{{ link_to_route('admin.products.index', 'Cancel', null, ['class'=>'btn btn-default'])}}
-
-		</div>
+		
 		
 		
 </div>
-<div class="col-xs-6 col-md-6">
+<div class=" col-sm-6">
 		<div class="form-group">
-			{{ Form::label('image','Main image:')}}
+			{{ Form::label('sizes','Tallas:')}} <span class="inputbox btn btn-info btn-sm" id="add_input_size"><i class="glyphicon glyphicon-plus-sign"></i></span>
+			<div id="inputs-sizes" class="row ">
+				@if(isset($product))
+					 @foreach ($product->sizes as $size)
+						<div class="col-xs-3 ">
+							<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+							{{ Form::text('sizes[]', $size,['class'=>'form-control'])}}
+						</div>
+					 @endforeach
+				@else
+					<div class="col-xs-3 ">
+						<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+						{{ Form::text('sizes[]',null,['class'=>'form-control'])}}
+					</div>
+					<div class="col-xs-3 ">
+						<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+						{{ Form::text('sizes[]',null,['class'=>'form-control'])}}
+					</div>
+					<div class="col-xs-3 ">
+						<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+						{{ Form::text('sizes[]',null,['class'=>'form-control'])}}
+					</div>
+				@endif
+				
+			</div>
+			
+			{{ errors_for('sizes',$errors) }}
+
+		</div>
+		<div class="form-group">
+			{{ Form::label('colors','Colores:')}} <span class="inputbox btn btn-info btn-sm" id="add_input_color"><i class="glyphicon glyphicon-plus-sign"></i></span>
+			
+			<div id="inputs-colors" class="row ">
+				@if(isset($product))
+					 
+					 @foreach ($product->colors as $color)
+						<div class="col-xs-3">
+							<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+							{{ Form::text('colors[]',$color,['class'=>'form-control colorfield'])}}
+						</div>
+					 @endforeach
+				@else
+					<div class="col-xs-3">
+						<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+						{{ Form::text('colors[]',null,['class'=>'form-control colorfield'])}}
+					</div>
+					<div class="col-xs-3">
+						<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+						{{ Form::text('colors[]',null,['class'=>'form-control colorfield'])}}
+					</div>
+					<div class="col-xs-3">
+						<span class="delete" ><i class="glyphicon glyphicon-remove"></i></span>
+						{{ Form::text('colors[]',null,['class'=>'form-control colorfield'])}}
+					</div>
+				@endif
+				
+			</div>
+
+			
+			{{ errors_for('colors',$errors) }}
+	
+
+		</div>
+
+		<div class="form-group">
+			{{ Form::label('image','Imagen:')}}
 			@if (isset($product))
 				<div class="main_image">
 		            @if ($product->image)
-		               <img src="{{ photos_path('products') }}thumb_{{ $product->image }}" alt="{{ $product->image }}"></a>
+		               <img src="{{ photos_path('products') }}thumb_{{ $product->image }}" alt="{{ $product->image }}">
 		            @else
-		                <img src="/img/no-image.png" alt="No Image">
+		                <img src="holder.js/140x140" alt="No Image">
 		            @endif
 		            
 		        </div>
@@ -62,13 +149,13 @@
 
 		<div class="form-group">
 		 	
-		 	<legend>Gallery</legend>
+		 	<legend>Galeria</legend>
 
 		 	@if(isset($product))
 		 		
 		        <div id="container-gallery">
 		            
-		            <a class="UploadButton btn btn-info" id="UploadButton">Upload Image</a>
+		            <a class="UploadButton btn btn-info" id="UploadButton">Subir Imagen</a>
 		            <div id="InfoBox"></div>
 		            <ul id="gallery">
 		                   
@@ -99,6 +186,27 @@
 		        </div>
 		        
 		    @endif
+	    </div>
+	    <div class="form-group">
+	    	<legend>Productos Relacionados</legend>
+	    		
+	    	@include('admin/products/partials/_addRelatedProducts')	
+	    	
+	    	<ul class="relateds">
+	    		@if(isset($relateds))
+		    		 @foreach ($relateds as $related)
+					            <li data-id="{{ $related->id }}">
+					            	<span class="delete" data-id="{{ $related->id }}"><i class="glyphicon glyphicon-remove"></i></span>
+					            	
+									<span class="label label-success">{{ $related->name }}</span>	
+					            	
+					            	{{ Form::hidden('relateds[]', $related->id) }}
+					            </li>
+					            
+			          @endforeach
+		         @endif
+	    	</ul>
+			    
 	    </div>
 
  </div>

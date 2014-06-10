@@ -1,60 +1,61 @@
+<div class="form-group">
+			{{ Form::submit(isset($buttonText) ? $buttonText : 'Crear Categoria',['class'=>'btn btn-primary'])}}
+			{{ link_to_route('admin.categories.index', 'Cancelar', null, ['class'=>'btn btn-default'])}}
+
+</div>
 <div class="col-xs-12 col-sm-6">
 		
 		<div class="form-group">
-			{{ Form::label('name','Name:')}}
+			{{ Form::label('name','Nombre:')}}
 			{{ Form::text('name',null,['class'=>'form-control','required'=>'required'])}}
 			{{ errors_for('name',$errors) }}
 			
 
 		</div>
 		<div class="form-group">
-			{{ Form::label('description','Description:')}}
+			{{ Form::label('description','Descripción:')}}
 			{{ Form::textarea('description',null,['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('description',$errors) }}
 		</div>
 
 		<div class="form-group">
-			{{ Form::label('parent_id','Parent Category:')}}
+			{{ Form::label('parent_id','Categoria Padre:')}}
 			{{ Form::select('parent_id', $options, null , ['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('parent_id',$errors) }}
 
 		</div>
 		
 		<div class="form-group">
-			{{ Form::label('view_type','View type:')}}
+			{{ Form::label('view_type','Tipo de vista:')}}
 			{{ Form::select('view_type', ['default' => 'default','portrait' => 'portrait','image-feature' => 'image-feature','landscape image-feature' => 'landscape image-feature'], null , ['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('view_type',$errors) }}
 
 		</div>
 		<div class="form-group">
-			{{ Form::label('published','Published:')}}
+			{{ Form::label('published','Publicado:')}}
 			{{ Form::select('published', ['1' => 'Yes', '0' => 'No'], null,['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('published',$errors) }}
 
 		</div>
 		<div class="form-group">
-			{{ Form::label('featured','Featured:')}}
+			{{ Form::label('featured','Destacado:')}}
 			{{ Form::select('featured', ['0' => 'No', '1' => 'Yes'], null,['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('featured',$errors) }}
 
 		</div>
 		
-		<div class="form-group">
-			{{ Form::submit(isset($buttonText) ? $buttonText : 'Create Category',['class'=>'btn btn-primary'])}}
-			{{ link_to_route('admin.categories.index', 'Cancel', null, ['class'=>'btn btn-default'])}}
-
-		</div>
+		
 </div>
  <div class="col-xs-6 col-md-6">
 	 	
 	 	<div class="form-group">
-			{{ Form::label('image','Image:')}}
+			{{ Form::label('image','Imagen:')}}
  			@if (isset($category))
 				 <div class="main_image">
 		            @if ($category->image)
 		               <img src="{{ photos_path('categories') }}thumb_{{ $category->image }}" alt="{{ $category->image }}"></a>
 		            @else
-		                <img src="/img/no-image.png" alt="No Image">
+		                <img src="holder.js/140x140" alt="No Image">
 		            @endif
 		            
 		        </div>

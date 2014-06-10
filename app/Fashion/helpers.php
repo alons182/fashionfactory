@@ -26,65 +26,35 @@ function set_active($path, $active = 'active' )
 {
     return Request::is($path) ? $active : '';
 }
-/*
-class ItemsTreeViewHelper {
 
-    private $items;
+function money($amount, $symbol = '$')
+{
+  return (!$symbol) ? number_format($amount, 0, ".", ",") : $symbol . number_format($amount, 0, ".", ",");
+}
+function number($amount)
+{
+  return preg_replace("/([^0-9\\.])/i", "", $amount);
+}
+function porcent($amount, $symbol = '%')
+{
+  return $symbol . number_format($amount, 0, ".", ",");
+}
 
-    public function __construct($items) {
-      $this->items = $items;
+function existDataArray($data, $index)
+{
+	if(isset($data[$index]))
+	{
+		$array = array_where($data[$index], function($key, $value)
+		{
+			if(trim($value) != "")
+		    	return $value;
+		});
+		
+	}else
+	{
+		$array = [];
+	}
+	
+	return $array;
+}
 
-    }
-
-    public function htmlList() {
-      return $this->htmlFromArray($this->itemArray());
-    }
-
-    private function itemArray() {
-      $result = array();
-      foreach($this->items as $item) {
-        if ($item->parent_id == 0) {
-          $result[$item->name] = $this->itemWithChildren($item);
-        }
-      }
-      return $result;
-    }
-
-    private function childrenOf($item) {
-      $result = array();
-      foreach($this->items as $i) {
-        if ($i->parent_id == $item->id) {
-          $result[] = $i;
-        }
-      }
-      return $result;
-    }
-
-    private function itemWithChildren($item) {
-      $result = array();
-      $children = $this->childrenOf($item);
-      foreach ($children as $child) {
-        $result[$child->name] = $this->itemWithChildren($child);
-      }
-      return $result;
-    }
-
-    private function htmlFromArray($array, $class = "parent") {
-      //dd($array);
-      // return $array;
-      $html = '';
-      foreach($array as $k=>$v) {
-        $html .= "<ul>";
-        $html .= "<li class='". $class."'>".$k."</li>";
-        if(count($v) > 0) {
-        	$class ="child";
-            $html .= $this->htmlFromArray($v, $class);
-        }
-        $html .= "</ul>";
-      }
-      return $html;
-    }
-
-   
-  }
-*/

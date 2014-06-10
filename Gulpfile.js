@@ -19,13 +19,15 @@ gulp.task('js', function () {
     './public/js/vendor/jquery.easing.1.3.js',
     './public/js/vendor/jquery.mousewheel.min.js',
     './public/js/vendor/imagesloaded.min.js',
-    './public/js/vendor/lightbox.min.js',
+    /*'./public/js/vendor/lightbox.min.js',*/
+    './public/js/vendor/easyzoom.js',
+    './public/js/vendor/holder.js',
     './public/js/main.js'
    
     ])
     //.pipe(browserify())
-    .pipe(uglify({ compress: true }))
-    .pipe(stripDebug())
+    //.pipe(uglify({ compress: true }))
+    //.pipe(stripDebug())
     .pipe(concat('bundle.js'))
     .pipe(gulp.dest('./public/js'));
  
@@ -37,12 +39,14 @@ gulp.task('js_admin', function () {
     './public/js/vendor/handlebars-v1.3.0.js',
     './public/js/vendor/lightbox.min.js',
     './public/js/vendor/ajaxupload.js',
+    './public/js/vendor/colpick.js',
+    './public/js/vendor/holder.js',
     './public/js/admin.js'
    
     ])
     //.pipe(browserify())
-    .pipe(uglify({ compress: true }))
-    .pipe(stripDebug())
+    //.pipe(uglify({ compress: true }))
+    //.pipe(stripDebug())
     .pipe(concat('bundle_admin.js'))
     .pipe(gulp.dest('./public/js'));
  
@@ -56,7 +60,7 @@ gulp.task('css', function () {
 });
 
 gulp.task('css_admin', function () {
-  gulp.src(['./public/css/lightbox.css','./public/css/admin.css'])
+  gulp.src(['./public/css/lightbox.css','./public/css/colpick.css','./public/css/admin.css'])
     .pipe(minifyCSS({ keepSpecialComments: '*', keepBreaks: '*'}))
     .pipe(concat('bundle_admin.css'))
     .pipe(gulp.dest('./public/css'));

@@ -111,31 +111,6 @@ class CategoriesController extends \BaseController {
 			]);
 	}
 
-	/**
-	 * Update the state of the category.
-	 * PUT /categories/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update_state_feat($id)
-	{
-		
-		$input = Input::all();
-		
-		if(isset($input['published']))
-		{
-			$state = ($input['published']) ? 0 : 1; 
-			$this->categoryRepository->update_state($id, $state);
-		}else
-		{
-			$feat = ($input['featured']) ? 0 : 1;  
-			$this->categoryRepository->update_feat($id, $feat);
-		}
-
-		return \Redirect::route('admin.categories.index');
-	}
-	
 
 	/**
 	 * Remove the specified resource from storage.
@@ -156,7 +131,7 @@ class CategoriesController extends \BaseController {
 
 
 	/**
-	 * published.
+	 * Featured.
 	 *
 	 * @param  int $id
 	 *
@@ -170,7 +145,7 @@ class CategoriesController extends \BaseController {
 	}
 
 	/**
-	 * Unpublished.
+	 * Unfeatured.
 	 *
 	 * @param  int $id
 	 *

@@ -3,6 +3,8 @@
 /public/images_store
 /public/public
 /node_modules/
+fashion.sublime-project
+fashion.sublime-workspace
 composer.phar
 composer.lock
 .env.*.php

@@ -18,8 +18,13 @@ class CreateProductsTable extends Migration {
 			$table->string('name');
 			$table->string('slug');
 			$table->text('description')->nullable();
-			$table->double('price', 18, 2);
+			$table->double('price', 15, 2)->default(0);
+			$table->double('promo_price', 15, 2)->default(0);
+			$table->float('discount')->default(0);
 			$table->string('image')->nullable();
+			$table->text('sizes')->nullable();
+			$table->text('colors')->nullable();
+			$table->text('relateds')->nullable();
 			$table->boolean('published')->default(1);
 			$table->boolean('featured')->default(0);
 			$table->timestamps();

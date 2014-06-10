@@ -6,7 +6,7 @@
                 {{ Form::open(['url' => 'admin/users','method' => 'get']) }}
                    <div class="form-group">
                         <div class="controls">
-                            {{ Form::label('q', 'Search') }}
+                            {{ Form::label('q', 'Buscar') }}
                             {{ Form::text('q',$search, ['class'=>'form-control'] ) }}
                         </div>
                         

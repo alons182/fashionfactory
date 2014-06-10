@@ -73,7 +73,11 @@ App::error(function(Laracasts\Validation\FormValidationException $exception, $co
 App::error(function(Illuminate\Database\Eloquent\ModelNotFoundException $exception, $code)
 {
 	
-	return Response::make('Not Found', 404);
+	if (Auth::guest()) return Redirect::route('home');
+
+	if (Auth::user()->user_type != "admin")	return Redirect::home();
+
+	return Redirect::route('admin');
 });
 
 
@@ -106,3 +110,14 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+
+/*
+|--------------------------------------------------------------------------
+| Require The Composers File
+|--------------------------------------------------------------------------
+|
+|
+*/
+
+require app_path().'/composers.php';

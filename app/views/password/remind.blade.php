@@ -5,7 +5,7 @@
 @section('content')
 <div class="starter-template">
 	<h1>Reset Your Password</h1>
-	{{ Form::open(['route'=>'password_resets.store']) }}
+	{{ Form::open() }}
 
 	
 	<div class="form-group">

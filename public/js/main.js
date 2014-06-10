@@ -26,8 +26,16 @@ $(function () {
 			}
 			
 			resizes();
+
+			
 		 
 		});
+
+	 // Instantiate EasyZoom plugin
+			var $easyzoom = $('.easyzoom').easyZoom();
+
+			// Get the instance API
+			var api = $easyzoom.data('easyZoom');
 	
 		// NAV MOBILE
 		btnMovil.click(function(e){
@@ -46,7 +54,7 @@ $(function () {
 
 		
 		$('.carousel').contentcarousel();
-	  
+	    $('.related-products').contentcarousel();
 		 
 		setTimeout(function(){
 	        $('.flash-message').fadeOut();
@@ -147,9 +155,16 @@ $(function () {
 		//GALLERY IMG CLICK
 
 		$('.additional-images').find('img').on('click',function(){
+			
 			//console.log($(this).attr('src'));
 			$('.main-image').find('a').attr('href', $(this).data('src')).find('img').attr('src', $(this).data('src'));
-			ResizeImageContainer($('.main-image'));
+			
+			api.swap($(this).data('src'), $(this).data('src'))
+			
+			//resizes();
+			if(main_image == true)
+				ResizeImageContainer($('.main-image'));
+			
 		});
 
 
@@ -210,8 +225,8 @@ $(function () {
 			var widthImage;
 			var heightImage;
 			obj.each(function (i,el){
-			
-				// debugger
+				
+				
 				heightStage = jQuery(this).height();
 
 				widthStage = jQuery (this).width();
@@ -220,9 +235,11 @@ $(function () {
 
 				var image = new Image();
 				image.src = img_url;
+
+		
 				image.onload = function() {
-		//            console.log(image.naturalWidth);
-		//            console.log(image.naturalHeight);
+		         //  console.log(image.naturalWidth);
+		          // console.log(image.naturalHeight);
 		//            alert(image.naturalWidth);
 				}
 

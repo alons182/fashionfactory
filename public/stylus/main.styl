@@ -393,6 +393,7 @@ header
 		margin-top 0
 		padding 0
 		font-size 14px
+	
 
 	.product-price
 		margin 0
@@ -431,6 +432,9 @@ header
 		font-size 22px
 		margin 0 0 6px
 		padding 0
+	h3
+		font-size 18px
+
 		
 
 	.main-image
@@ -454,14 +458,44 @@ header
 		color #000
 		margin-bottom 20px
 	.product-price
-		margin 0 0 15px
+	.product-price-promo
+		margin 0 5px 15px
 		clear both
-		display block
+		display inline-block
 		font-size 24px
 		color #000
+
+	.product-price-promo
+		font-size 32px
+		position relative
+
+	.icon-bookmark
+		position absolute
+		font-size 2em
+		top 0
+		right -65px
+		color fusia
+		
+	.discount
+		position absolute
+		left 27%
+		font-size 16px
+		top 10px
+		color #FFF
+		
+
 	.product-short-description
 		margin 0 0 15px
 		padding 0
+
+	.product-colors
+		display inline-block
+	
+	.color 
+		width 20px 
+		height 20px
+		display inline-block
+		border 1px solid #e2e2e2
 	.other-image
 		font-size 18px
 		color #000
@@ -475,6 +509,42 @@ header
 			height auto
 			max-width 100%
 			cursor pointer
+	.other-products
+		font-size 18px
+		color #000
+		font-weight 700
+		padding 5px 0
+	.related-products
+		position relative
+		width 100%
+		height 135px
+		margin-bottom 20px
+
+		
+		.related-item
+			position relative
+			float left
+			width 200px
+			height 100%
+			text-align center
+			overflow hidden
+			margin .5em
+
+		a 
+			margin 8px
+			display block
+		.ca-nav
+			position relative
+			top 55px
+			.ca-nav-prev
+				position absolute
+				left -30px
+			.ca-nav-next
+				right -45px
+				position absolute
+			
+			
+			
 
 .page 
 	padding 75px 75px 0 75px
@@ -589,7 +659,9 @@ header
 	float left
 
 .align-center
-	text-align center		
+	text-align center
+.tachado
+	text-decoration line-through		
 		
 			
 		
@@ -603,8 +675,7 @@ header
 		
 		input
 			opacity 1
-			
-	
 
-		
+
+@import "easyzoom.styl"			
 @import "responsive.styl"	

@@ -5,7 +5,7 @@
 
 <div class="carousel">
     <div class="ca-wrapper">
-        
+       
         @foreach ($categories as $category)
             
             <div class="ca-item category_item">

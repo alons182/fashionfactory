@@ -7,21 +7,21 @@
    
 	
 	<div class="table-responsive">
-        {{ link_to_route('admin.products.create','New product',null,['class'=>'btn btn-success']) }}
+        {{ link_to_route('admin.products.create','Nuevo Producto',null,['class'=>'btn btn-success']) }}
         
-        {{ Form::open(['route' =>['destroy_multiple'],'method' => 'post', 'id' =>'form-delete-chk','data-confirm' => 'Are you sure?']) }}
+        {{ Form::open(['route' =>['destroy_multiple'],'method' => 'post', 'id' =>'form-delete-chk','data-confirm' => 'Estas seguro?']) }}
         <button type="submit" class="delete-multiple btn btn-danger btn-sm "><i class="glyphicon glyphicon-trash"></i></button>     
         <table class="table table-striped  ">
         <thead>
             <tr>
                 <th>=</th>
                 <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Categories</th>
-                <th>When</th>
-                <th>Published</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+                <th>Categorias</th>
+                <th>Creado</th>
+                <th>Publicado</th>
                 <th><i class="glyphicon glyphicon-cog"></i></th>
             </tr>
         </thead>
@@ -32,7 +32,7 @@
                     <td>{{ $product->id }}</td>
                     <td>{{ link_to_route('admin.products.edit', $product->name, $product->id) }}</td>
                     <td>{{ str_limit($product->description, 20) }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td>{{ money($product->price, '&cent') }}</td>
                     <td>
                          @foreach ($product->categories as $category)
                             {{ $category->name }} - 
@@ -50,7 +50,7 @@
                     </td>
                     <td>
                     
-                       <button type="submit" class="btn btn-danger btn-sm" form="form-delete" formaction="{{ URL::route("admin.products.destroy", [$product->id]) }}">Delete</button>                      
+                       <button type="submit" class="btn btn-danger btn-sm" form="form-delete" formaction="{{ URL::route("admin.products.destroy", [$product->id]) }}">Eliminar</button>                      
                                                               
                     </td>
                     
@@ -71,6 +71,6 @@
     </div>  
 
 {{ Form::open(array('method' => 'post', 'id' => 'form-pub-unpub')) }}{{ Form::close() }}
-{{ Form::open(['method' => 'delete', 'id' =>'form-delete','data-confirm' => 'Are you sure?']) }}{{ Form::close() }}
+{{ Form::open(['method' => 'delete', 'id' =>'form-delete','data-confirm' => 'Estas seguro?']) }}{{ Form::close() }}
 
 @stop

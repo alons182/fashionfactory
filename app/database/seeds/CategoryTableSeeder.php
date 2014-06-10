@@ -11,11 +11,11 @@ class CategoryTableSeeder extends Seeder {
 
 		foreach(range(1, 6) as $index)
 		{
-			$name = $faker->name;
+			$name = $faker->word;
 
 			Category::create([
 
-				'name' => $faker->name,
+				'name' => $name,
 				'slug' => Str::slug($name),
 				'description' => '<p>'.  implode('</p><p>', $faker->paragraphs(2)) .'</p>', 
                 'image' => null,

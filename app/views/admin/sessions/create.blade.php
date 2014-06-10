@@ -25,8 +25,8 @@
 		<div class="form-group">
 			{{ Form::submit('Log in',['class'=>'btn btn-primary'])}}
 			
-			{{ link_to_route('password_resets.create','Forgot your password?') }}
-
+			<a href="/password/remind">Forgot your password?</a>
+			
 		</div>
 	</div>
 	

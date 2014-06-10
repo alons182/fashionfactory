@@ -6,17 +6,17 @@
                 {{ Form::open(['url' => 'admin/products','method' => 'get']) }}
                    <div class="form-group">
                         <div class="controls">
-                            {{ Form::label('q', 'Search') }}
+                            {{ Form::label('q', 'Buscar') }}
                             {{ Form::text('q',$search, ['class'=>'form-control'] ) }}
                         </div>
                    
                         <div class="controls">
-                            {{ Form::label('cat', 'Categories') }}
-                            {{ Form::select('cat', ['' => '-- Select --'] + $options, $categorySelected, ['class'=>'form-control'] ) }}
+                            {{ Form::label('cat', 'Categorias') }}
+                            {{ Form::select('cat', ['' => '-- Seleccionar --'] + $options, $categorySelected, ['class'=>'form-control'] ) }}
                         </div>
                          <div class="controls">
-                            {{ Form::label('published', 'State') }}
-                            {{ Form::select('published', ['' => '-- Select --','0' => 'Unpublished','1' => 'Published'], $selectedStatus, ['class'=>'form-control'] ) }}
+                            {{ Form::label('published', 'Estado') }}
+                            {{ Form::select('published', ['' => '-- Seleccionar --','0' => 'Unpublicado','1' => 'Publicado'], $selectedStatus, ['class'=>'form-control'] ) }}
                         </div>
                         
                  </div>  

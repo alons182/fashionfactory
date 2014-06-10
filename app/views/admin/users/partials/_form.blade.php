@@ -1,3 +1,8 @@
+<div class="form-group">
+	{{ Form::submit(isset($buttonText) ? $buttonText : 'Crear Usuario',['class'=>'btn btn-primary'])}}
+	{{ link_to_route('admin.users.index', 'Cancelar', null, ['class'=>'btn btn-default'])}}
+
+</div>
 <div class="col-xs-12 col-sm-6">
 		<div class="form-group">
 			{{ Form::label('username','Username:')}}
@@ -23,14 +28,9 @@
 
 		</div>
 		<div class="form-group">
-			{{ Form::label('password_confirmation','Password confirmation:')}}
+			{{ Form::label('password_confirmation','Confirmación de Password:')}}
 			{{ Form::password('password_confirmation',['class'=>'form-control'])}}
 
 		</div>
-		<div class="form-group">
-			{{ Form::submit(isset($buttonText) ? $buttonText : 'Create User',['class'=>'btn btn-primary'])}}
-			{{ link_to_route('admin.users.index', 'Cancel', null, ['class'=>'btn btn-default'])}}
-			
-
-		</div>
+		
 </div>

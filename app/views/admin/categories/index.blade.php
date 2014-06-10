@@ -6,15 +6,15 @@
    @include('admin/categories/partials/_search')
    	
 	<div class="table-responsive">
-        {{ link_to_route('admin.categories.create','New Category',null,['class'=>'btn btn-success']) }}
+        {{ link_to_route('admin.categories.create','Nueva Categoria',null,['class'=>'btn btn-success']) }}
         <table class="table table-striped  ">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>When</th>
-                <th>Pub | Feat</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Creado</th>
+                <th>Pub | Des</th>
                 <th><i class="glyphicon glyphicon-cog"></i></th>
             </tr>
         </thead>
@@ -51,7 +51,7 @@
                     
                     <td>
                        
-                        <button type="submit" class="btn btn-danger btn-sm" form="form-delete" formaction="{{ URL::route("admin.categories.destroy", [$category->id]) }}">Delete</button>
+                        <button type="submit" class="btn btn-danger btn-sm" form="form-delete" formaction="{{ URL::route("admin.categories.destroy", [$category->id]) }}">Eliminar</button>
                    
                          
                     @if ($category->isRoot())
@@ -90,6 +90,6 @@
 {{ Form::open(['method' => 'post', 'id' => 'form-up-down']) }}{{ Form::close() }}
 {{ Form::open(['method' => 'post', 'id' => 'form-pub-unpub']) }}{{ Form::close() }}
 {{ Form::open(['method' => 'post', 'id' => 'form-feat-unfeat']) }}{{ Form::close() }}
-{{ Form::open(['method' => 'delete', 'id' =>'form-delete','data-confirm' => 'Are you sure?']) }}{{ Form::close() }}
+{{ Form::open(['method' => 'delete', 'id' =>'form-delete','data-confirm' => 'Estas seguro?']) }}{{ Form::close() }}
 
 @stop

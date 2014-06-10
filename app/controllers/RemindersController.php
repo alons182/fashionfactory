@@ -1,34 +1,29 @@
 <?php
 
-class PasswordResetsController extends \BaseController {
-
-	
+class RemindersController extends Controller {
 
 	/**
-	 * Show the form for creating a new resource.
-	 * GET /passwordresets/create
+	 * Display the password reminder view.
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function getRemind()
 	{
-		return View::make('password_resets.create');
+		return View::make('password.remind');
 	}
 
 	/**
-	 * Store a newly created resource in storage.
-	 * POST /passwordresets
+	 * Handle a POST request to remind a user of their password.
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function postRemind()
 	{
-		
 		$response = Password::remind(Input::only('email'),function($message)
 			{
 				$message->subject('Your Password Remider');
 			});
-		
+
 		switch ($response)
 		{
 			case Password::INVALID_USER:
@@ -37,41 +32,48 @@ class PasswordResetsController extends \BaseController {
 									'flash_type' => 'alert-danger'
 								]);
 
-				
-
 			case Password::REMINDER_SENT:
 				return Redirect::back()->with([
 									'flash_message' => Lang::get($response),
 									'flash_type' => 'alert-success'
 								]);
 		}
-
-
 	}
 
-	public function reset($token)
+	/**
+	 * Display the password reset view for the given token.
+	 *
+	 * @param  string  $token
+	 * @return Response
+	 */
+	public function getReset($token = null)
 	{
 		if (is_null($token)) App::abort(404);
 
-		return View::make('password_resets.reset')->withToken($token);
+		return View::make('password.reset')->with('token', $token);
 	}
 
+	/**
+	 * Handle a POST request to reset a user's password.
+	 *
+	 * @return Response
+	 */
 	public function postReset()
 	{
-		$creds = Input::only('email', 'password', 'password_confirmation','token');
-		
-		Password::validator(function($creds)
+		$credentials = Input::only(
+			'email', 'password', 'password_confirmation', 'token'
+		);
+
+		Password::validator(function($credentials)
 		{
-		    return strlen($creds['password']) >= 3;
+		    return strlen($credentials['password']) >= 3;
 		});
 
-		$response = Password::reset($creds, function($user, $password)
+		$response = Password::reset($credentials, function($user, $password)
 		{
-			
 			$user->password = $password;
-			$user->save();
 
-			
+			$user->save();
 		});
 
 		switch ($response)
@@ -88,10 +90,8 @@ class PasswordResetsController extends \BaseController {
 				return Redirect::to('admin/login')->with([
 									'flash_message' =>'Your password has been Change',
 									'flash_type' => 'alert-success'
-								]);;
+								]);
 		}
 	}
-
-	
 
 }

@@ -3,6 +3,7 @@ use Str;
 use Product;
 use Category;
 use Photo;
+use Related;
 use File;
 use Fashion\Repos\DbRepository;
 use Fashion\Repos\Category\CategoryRepository;
@@ -64,19 +65,41 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 		return $this->getProducts()->orderBy('products.created_at', 'desc')
 									->limit(6)->get(['products.id','products.name']);
 	}
+	public function relateds($product)
+	{
+		
+		if($product->relateds)
+		{
+			return $this->getProducts()->with('categories')->whereIn('id', $product->relateds)->get(['products.id','products.name','products.image','products.slug']);
+		}
+	
+	}
+	public function list_products($value=null)
+	{
+		$products = ($value) ? $this->getProducts()->where('id', '<>', $value)->get() : $this->getProducts()->all(); 
+		
+		return $products;
+	}
 
 	public function store($data)
 	{
 		
-		 $data['slug'] = Str::slug($data['name']);
-		
-		 $data['image'] = ( $data['image'] ) ? $this->storeImage($data['image'], $data['name'], 'products', 200, null) : ''; 
-		 
-		 $product = $this->model->create($data);
-		 			
-		 $this->sync_categories($product, $data['categories'] );
+		$data['slug'] = Str::slug($data['name']);
 
-		 $this->sync_photos($product, $data);
+		$data['sizes'] = existDataArray($data, 'sizes');
+
+		$data['colors'] = existDataArray($data, 'colors');
+
+		$data['relateds'] = existDataArray($data, 'relateds');
+		
+		$data['image'] = ( $data['image'] ) ? $this->storeImage($data['image'], $data['name'], 'products', 200, null) : ''; 
+		 
+		$product = $this->model->create($data);
+		 			
+		$this->sync_categories($product, $data['categories'] );
+
+		$this->sync_photos($product, $data);
+
 		
 		return $product;
 	}
@@ -86,9 +109,16 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 	{
 		$product = $this->model->findOrFail($id);
 		
+		$data['sizes'] = existDataArray($data, 'sizes');
+
+		$data['colors'] = existDataArray($data, 'colors');
+
+		$data['relateds'] =existDataArray($data, 'relateds');
+
 		$data['image'] = ( $data['image'] ) ? $this->storeImage($data['image'], $data['name'], 'products', 200, null) : $product->image;
 
 		$data['slug'] = Str::slug($data['name']);
+
 
 		$product->fill($data);
 
@@ -96,16 +126,20 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 
 		$this->sync_categories($product, $data['categories'] );
 		
+		
 		return $product;
 
 		
 	}
+
 
 	public function sync_categories($product, $categories)
 	{
 		
 		$product->categories()->sync($categories);
 	}
+
+	
 
 	public function sync_photos($product, $data)
 	{

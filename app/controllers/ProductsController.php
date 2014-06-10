@@ -4,7 +4,7 @@
 use Fashion\Repos\Product\ProductRepository;
 use Fashion\Repos\Category\CategoryRepository;
 use Fashion\Repos\Photo\PhotoRepository;
-use Fashion\Services\Search\Search;
+
 
 class ProductsController extends \BaseController {
 
@@ -48,7 +48,7 @@ class ProductsController extends \BaseController {
 		
 		$search = Input::all();
 		
-		$products = $this->productRepository->search($search)->with('categories')->where('published', '=', 1)->paginate($this->limit);
+		$products = Search::products($search);
 		
 		return  View::make('products.index')->withProducts($products)->withSearch($search['q']); 
 	}
@@ -66,9 +66,11 @@ class ProductsController extends \BaseController {
 		
 		$product = $category->products()->SearchSlug($product)->firstOrFail();
 
+		$relateds = $this->productRepository->relateds($product);
+
 		$photos = $this->photoRepository->getPhotos($product->id);
 		
-		return  View::make('products.show')->withProduct($product)->withCategory($category)->withPhotos($photos); 
+		return  View::make('products.show')->withProduct($product)->withRelateds($relateds)->withCategory($category)->withPhotos($photos); 
 	}
 
 	

@@ -75,9 +75,10 @@ abstract class DbRepository
 
 		 File::exists($path) or File::makeDirectory($path);
 
-		 $image->save($path . $filename)->resize($thumbWidth, $thumbHeight, function ($constraint) {
-												    $constraint->aspectRatio();
-												})->save($path .'thumb_'. $filename);
+		 $image->save($path . $filename)
+		 	   ->resize($thumbWidth, $thumbHeight, function ($constraint) {
+				    $constraint->aspectRatio(); })
+		 	   ->save($path .'thumb_'. $filename);
 		return  $filename;
 	}
 }
