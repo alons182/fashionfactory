@@ -27,6 +27,11 @@ $(function () {
 				imageUrl = $('.section-bg').data('bg');
 				body.css('background-image', 'url(' + imageUrl + ')' );
 			}
+
+			
+			$easyzoom = $('.easyzoom').easyZoom();
+	 		api = $easyzoom.data('easyZoom');
+			
 			
 			resizes();
 
@@ -34,13 +39,6 @@ $(function () {
 		 
 		});
 	 		
-			
-			if($(window).width() > 480){
-				// Instantiate EasyZoom plugin
-	 		 	
-    
-			}
-
 	
 		// NAV MOBILE
 		btnMovil.click(function(e){
@@ -77,12 +75,12 @@ $(function () {
 			var width_section = 0;
 
 			if($(window).width() < 480){
-				//api.teardown();
+				api.teardown();
+				$('.easyzoom a').on('click', function(event) {event.preventDefault();}); 
 			}else
 			{
-				 
-				 $easyzoom = $('.easyzoom').easyZoom();
-	 		     api = $easyzoom.data('easyZoom');
+				$easyzoom = $('.easyzoom').easyZoom();
+	 		    api = $easyzoom.data('easyZoom');
 			}
 				
 
