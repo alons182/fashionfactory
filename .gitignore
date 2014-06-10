@@ -5,6 +5,7 @@
 /node_modules/
 fashion.sublime-project
 fashion.sublime-workspace
+/public/.htaccess
 composer.phar
 composer.lock
 .env.*.php

@@ -39,7 +39,7 @@
 			{{ Form::label('promo_price','Precio de Promoción:')}}
 			<div class="input-group">
 				<span class="input-group-addon">&cent;</span>
-				{{ Form::text('promo_price',isset($product) ? money($product->promo_price, false) : null,['class'=>'form-control','required'=>'required'])}}
+				{{ Form::text('promo_price',isset($product) ? money($product->promo_price, false) : null,['class'=>'form-control'])}}
 				{{ errors_for('promo_price',$errors) }}
 
 			</div>
@@ -48,7 +48,7 @@
 			{{ Form::label('discount','Descuento:')}}
 			<div class="input-group">
 				<span class="input-group-addon">%</span>
-				{{ Form::text('discount', null,['class'=>'form-control','required'=>'required'])}}
+				{{ Form::text('discount', null,['class'=>'form-control'])}}
 				{{ errors_for('discount',$errors) }}
 
 			</div>

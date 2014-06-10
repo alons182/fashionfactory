@@ -58,6 +58,13 @@ class Product extends \Eloquent {
        
 
     }
+    public function setDiscountAttribute($discount)
+    {
+       
+        $this->attributes['discount'] = (number($discount) == "") ? 0 : number($discount);
+       
+
+    }
     public function setSizesAttribute($sizes)
     {
        
