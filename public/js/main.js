@@ -8,7 +8,10 @@ $(function () {
 		 btnSearch     = $('.search'),
 		 section_left     = $('.section-left'),
 		 main_image = $('div').hasClass('main-image')
-		 page = false;
+		 page = false,
+		 $easyzoom = '',
+		 api = '';
+
 
 	 $(window).load(function() {
 		
@@ -30,12 +33,15 @@ $(function () {
 			
 		 
 		});
+	 		
+			
+			if($(window).width() > 480){
+				// Instantiate EasyZoom plugin
+	 		 	$easyzoom = $('.easyzoom').easyZoom();
+	 			api = $easyzoom.data('easyZoom');
+    
+			}
 
-	 // Instantiate EasyZoom plugin
-			var $easyzoom = $('.easyzoom').easyZoom();
-
-			// Get the instance API
-			var api = $easyzoom.data('easyZoom');
 	
 		// NAV MOBILE
 		btnMovil.click(function(e){
@@ -70,6 +76,15 @@ $(function () {
 		function resizes()
 		 {
 			var width_section = 0;
+
+			if($(window).width() < 480){
+				api.teardown();
+			}else
+			{
+				 $easyzoom = $('.easyzoom').easyZoom();
+	 		     api = $easyzoom.data('easyZoom');
+			}
+				
 
 			if($(window).width() < 980){
 				width_section = 0;
