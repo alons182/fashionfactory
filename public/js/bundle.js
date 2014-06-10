@@ -1454,8 +1454,7 @@ $(function () {
 			
 			if($(window).width() > 480){
 				// Instantiate EasyZoom plugin
-	 		 	$easyzoom = $('.easyzoom').easyZoom();
-	 			api = $easyzoom.data('easyZoom');
+	 		 	
     
 			}
 
@@ -1495,9 +1494,10 @@ $(function () {
 			var width_section = 0;
 
 			if($(window).width() < 480){
-				api.teardown();
+				//api.teardown();
 			}else
 			{
+				 
 				 $easyzoom = $('.easyzoom').easyZoom();
 	 		     api = $easyzoom.data('easyZoom');
 			}
