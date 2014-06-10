@@ -23,7 +23,7 @@
 		<div class="product-inner">
 			<h1 class="product-name">{{ $product->name }} </h1>
 			<div class="clear"></div>
-			@if ( $product->promo_price )
+			@if ( $product->promo_price > 0 )
 				<div class="product-price">
 					<span class="tachado">{{ money($product->price, '&cent') }}</span>
 				</div>
