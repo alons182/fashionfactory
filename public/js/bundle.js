@@ -174,7 +174,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 						cache.totalItems	= $items.length;
 						
 						// add navigation buttons
-						if( cache.totalItems > 3 )	
+						if( cache.totalItems >= 3 )	
 							$el.prepend('<div class="ca-nav"><span class="ca-nav-prev icon-arrow-left"></span><span class="ca-nav-next icon-arrow-right"></span></div>')	
 						
 						// control the scroll value
