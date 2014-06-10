@@ -66,7 +66,11 @@
 					@foreach ($relateds as $related)
 						<div  class="ca-item related-item">
 							<a href="{{ URL::route('product', [$related->categories->last()->slug, $related->slug]) }}">
+								@if ($related->image)
 								<img src="{{ photos_path('products') }}thumb_{{ $related->image }}" data-src="{{ photos_path('products') }}{{ $related->image}}" alt="{{ $related->name }}">
+								@else 
+								<img src="holder.js/200x135/text:No-image" alt="{{ $related->name }}">
+								@endif
 							</a>
 							
 						</div>

@@ -76,7 +76,7 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 	}
 	public function list_products($value=null)
 	{
-		$products = ($value) ? $this->getProducts()->where('id', '<>', $value)->get() : $this->getProducts()->all(); 
+		$products = ($value) ? $this->getProducts()->has('categories')->where('id', '<>', $value)->get() : $this->getProducts()->has('categories')->all(); 
 		
 		return $products;
 	}
