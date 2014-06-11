@@ -7,6 +7,8 @@ var gulp        = require('gulp'),
     stripDebug  = require('gulp-strip-debug'),
     minifyCSS   = require('gulp-minify-css'),
     minifyHTML  = require('gulp-minify-html'),
+    stylus  = require('gulp-stylus'),
+    nib  = require('nib'),
     concat = require('gulp-concat');
 
 
@@ -52,6 +54,13 @@ gulp.task('js_admin', function () {
  
 });
 
+// Get and render all .styl files recursively
+gulp.task('stylus', function () {
+  gulp.src('./public/stylus/main.styl')
+    .pipe(stylus({use: [nib()]}))
+    .pipe(gulp.dest('./public/css/'));
+});
+
 gulp.task('css', function () {
   gulp.src(['./public/css/isotope.css','./public/css/lightbox.css','./public/css/main.css'])
     .pipe(minifyCSS({ keepSpecialComments: '*', keepBreaks: '*'}))
@@ -69,9 +78,10 @@ gulp.task('css_admin', function () {
 gulp.task('watch', function () {
    gulp.watch(['./public/js/main.js'],['js']);
     gulp.watch(['./public/js/admin.js'],['js_admin']);
+   gulp.watch(['./public/stylus/main.styl'],['stylus']);
    gulp.watch(['./public/css/main.css'],['css']);
    gulp.watch(['./public/css/admin.css'],['css_admin']);
    
 });
 
-gulp.task('default', [ 'js','js_admin','css','css_admin', 'watch' ]);
+gulp.task('default', [ 'js','js_admin','stylus','css','css_admin', 'watch' ]);
