@@ -77,9 +77,9 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 	public function list_products($value=null,$search = null)
 	{
 		if($search)
-		  	$products = ($value) ? $this->getProducts()->has('categories')->where('id', '<>', $value)->search($search)->paginate(3) : $this->getProducts()->has('categories')->paginate(10); 
+		  	$products = ($value) ? $this->getProducts()->has('categories')->where('id', '<>', $value)->search($search)->paginate(8) : $this->getProducts()->has('categories')->paginate(8); 
 		else 
-			$products = ($value) ? $this->getProducts()->has('categories')->where('id', '<>', $value)->paginate(3) : $this->getProducts()->has('categories')->paginate(10); 
+			$products = ($value) ? $this->getProducts()->has('categories')->where('id', '<>', $value)->paginate(8) : $this->getProducts()->has('categories')->paginate(8); 
 		
 		return $products;
 	}

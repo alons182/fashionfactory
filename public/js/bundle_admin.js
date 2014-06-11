@@ -4230,7 +4230,7 @@ $(function () {
      
     });
 
-    $('.pagination').on('click','a', function(event) {
+    $('.modal-dialog').find('.pagination').on('click','a', function(event) {
        event.preventDefault();
        getProducts(fillProductsInfo,$(this).data('page')); 
     });
