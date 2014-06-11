@@ -401,7 +401,7 @@ $(function () {
                     },400);
                  
               
-              }else{
+              }else if(key.length == 0){
                    $('.dropdown').removeClass('open');
                    getProducts(fillProductsInfo); 
               }
