@@ -71,8 +71,11 @@
 								@else 
 								<img src="holder.js/200x135/text:No-image" alt="{{ $related->name }}">
 								@endif
-								<span class="related-name">{{ $related->name }}</span>
-								<span class="related-price">{{ money($related->price, '&cent') }}</span>
+								<span class="caption">
+									<span class="related-name">{{ $related->name }}</span>
+									<span class="related-price">{{ money($related->price, '&cent') }}</span>
+								</span>
+								
 							</a>
 							
 						</div>
