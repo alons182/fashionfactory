@@ -174,11 +174,13 @@ $(function () {
        });
       
      $('#modalAddProduct').modal('hide');
-    
-      
-      
-
+  
      
+    });
+
+    $('.pagination').on('click','a', function(event) {
+       event.preventDefault();
+       getProducts(fillProductsInfo,$(this).data('page')); 
     });
 
     
@@ -196,12 +198,146 @@ $(function () {
         return res;
 
     }
-    function getProducts (callback) {
+    function Pagination (total, page, max_pages,items_per_page) {
+       
+            
+            var len = total,// total de items
+                page = page,// pagina actual
+                pagesVisibles = max_pages, 
+                totalPages = Math.ceil(len / items_per_page),             
+                pageStart = (page % pagesVisibles === 0) ? (parseInt(page / pagesVisibles, 10) - 1) * pagesVisibles + 1 : parseInt(page / pagesVisibles, 10) * pagesVisibles + 1,//calculates the start page.
+                output = [],
+                i = 0,
+                counter = 0;
+           
+
+            //(options) ? $(this.el).html('<ul class="pagination"></ul>') : '';
+            
+            
+
+            pageStart = pageStart < 1 ? 1 : pageStart;//check the range of the page start to see if its less than 1.
+
+            for (i = pageStart, counter = 0; counter < pagesVisibles && i <= totalPages; i = i + 1, counter = counter + 1) {//fill the pages
+              
+               output.push(i);
+            }
+
+            output.first = 1;//add the first when the current page leaves the 1st page.
+
+            if (page > 1) {// add the previous when the current page leaves the 1st page
+                output.prev = page - 1;
+            } else {
+                output.prev = 1;
+            }
+
+            if (page < totalPages) {// add the next page when the current page doesn't reach the last page
+                output.next = page + 1;
+            } else {
+                output.next = totalPages;
+            }
+
+            output.last = totalPages;// add the last page when the current page doesn't reach the last page
+
+            output.current = page;//mark the current page.
+
+            output.total = totalPages;
+
+            output.numberOfPages = pagesVisibles;
+           
+        
+            if(output.length>0)
+            {
+                
+               buildItem(output);
+            }
+     
+     
+
+           // return this;
+    }
+    function buildItem (output){
+              $('.pagination').html("");
+             if (output.first) {//if the there is first page element
+                    
+                 
+                    var first = $('<li></li>',{
+                        class: 'first',
+                        html : "<a href='#"+ output.first +"' data-page='"+  output.first +"'> &lt;&lt;</a>"
+                       
+                    });
+        
+
+                    if (first) {
+                         $('.pagination').append(first);
+                         
+                    }
+
+                }
+
+                if (output.prev) {//if the there is previous page element
+
+                   var prev = $('<li></li>',{
+                        class: 'prev',
+                        html : "<a href='#"+ output.prev +"' data-page='"+  output.prev +"'> &lt;</a>"
+                       
+                    });
+                   
+                    if (prev) {
+                         $('.pagination').append(prev);
+                          
+                    }
+
+                }
+
+
+                for (var i = 0; i < output.length; i = i + 1) {//fill the numeric pages.
+
+                  var p = $('<li></li>',{
+                        class: (output[i] === output.current) ?  "active" : "",
+                        html : "<a href='#"+ output[i] +"' data-page='"+ output[i] +"'>"+ output[i] +"</a>"
+                       
+                    });
+                   
+
+                    if (p) {
+                        $('.pagination').append(p);
+                    }
+                }
+
+                if (output.next) {//if there is next page
+
+                 var next = $('<li></li>',{
+                        class: 'next',
+                        html : "<a href='#"+ output.next +"' data-page='"+  output.next +"' > &gt;</a>"
+                       
+                    });
+                   
+                    if (next) {
+                        $('.pagination').append(next);
+                    }
+                }
+
+                if (output.last) {//if there is last page
+
+                  var last = $('<li></li>',{
+                        class: 'last',
+                        html : "<a href='#"+ output.last +"' data-page='"+ output.last +"'> &gt;&gt;</a>"
+                       
+                    });
+
+                    if (last) {
+                        $('.pagination').append(last);
+                    }
+                }
+        }
+    function getProducts (callback, page) {
+               var p = page ? parseInt(page, 10) : 1;
+              $('.loading-search').removeClass('hidden');
               $.ajax({
                             
                   url : '/admin/products/list',
                   dataType : 'json',
-                  data : { exc_id: $('input[name=product_id]').val() }
+                  data : { exc_id: $('input[name=product_id]').val(), page: p }
 
                 }).done(callback);
     }
@@ -222,8 +358,8 @@ $(function () {
         if (jsonData.error) {
             return onError();
         }
-
-         products = $.map(jsonData ,function(obj, index){
+         $('.loading-search').addClass('hidden');
+         products = $.map(jsonData.data ,function(obj, index){
                 return {
                     id : obj.id,
                     name : obj.name,
@@ -236,9 +372,57 @@ $(function () {
         var html = ProductTemplate(products);
        
         $('#modalAddProduct').find('.tbody').html( html );
-     
-     
+        //debugger;
+        Pagination(jsonData.total, jsonData.current_page, 10,jsonData.per_page);
 
+    }
+
+    $('#searchText').on('keypress', function(event) {
+     
+        if (event.keyCode == 13) {
+                  event.preventDefault();
+              }
+      
+    });
+     $('#searchText').on('keyup', function(event) {
+       search();
+    });
+    function search() {
+             
+              var input = $('#searchText'),
+                  key =input.val(),
+                  self = this;
+              
+              if(key.length >=3 ){
+                  
+                    $('.loading-search').removeClass('hidden');
+                    clearTimeout( this.timer );
+                    this.timer = setTimeout(function () {
+                        console.log('search ' + key);
+                         getProductsByName(fillProductsInfo,key); //self.searchResults.findByName(key);
+                        $('.dropdown').addClass('open');
+                        $('.loading-search').addClass('hidden');
+                    },400);
+                 
+              
+              }else{
+                   $('.dropdown').removeClass('open');
+                   getProducts(fillProductsInfo); 
+              }
+                      
+              
+             
+           
+          }
+    function getProductsByName (callback, key) {
+              // var p = page ? parseInt(page, 10) : 1;
+              $.ajax({
+                            
+                  url : '/admin/products/list',
+                  dataType : 'json',
+                  data : { exc_id: $('input[name=product_id]').val(), key: key }
+
+                }).done(callback);
     }
     
     function deletePhoto()

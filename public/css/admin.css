@@ -100,5 +100,13 @@ textarea.form-control{
 	display: none;
 	position: absolute;
 }
+
+.loading-search 
+{
+	position: absolute;
+	top: 10px;
+	left: 105px;
+}
+
 	
 					

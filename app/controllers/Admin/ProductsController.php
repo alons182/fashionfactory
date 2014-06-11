@@ -210,8 +210,8 @@ class ProductsController extends \BaseController {
 	 */
 	public function list_products()
 	{
-		
-		return $this->productRepository->list_products(input::get('exc_id'));
+
+		return $this->productRepository->list_products(input::get('exc_id'),input::get('key'));
 		
 	}
 

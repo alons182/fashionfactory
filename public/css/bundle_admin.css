@@ -111,3 +111,4 @@ textarea.form-control{height:100px}
 #inputs-colors .delete{color:#FFF}
 #inputs-colors .colorfield{border-right:20px solid #c7c7c7}
 .delete-multiple{margin-top:5px;display:none;position:absolute}
+.loading-search{position:absolute;top:10px;left:105px}

@@ -5,10 +5,16 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="modalAddProductLabel">Productos</h4>
+        <h4 class="modal-title" id="modalAddProductLabel">Productos</h4> <img class="loading-search hidden" src="/img/loading.gif" alt="Loading" />
       </div>
       <div class="modal-body">
+        <form class="navbar-form navbar-search navbar-left dropdown " role="search">
+	        <div class="form-group">
+	          
+	           <input id="searchText" type="text" class="form-control search-query dropdown-toggle " data-toggle="dropdown" placeholder="Search" autocomplete="off">
+	        </div>
         
+      </form>
 		<table class="table table-striped  ">
 	        <thead>
 	            <tr>
@@ -22,6 +28,11 @@
 	            
 	        </tbody>
 	       <tfoot>
+	          <tr>
+	          	<td  colspan="10" class="pagination-container">
+	          		<ul class="pagination"></ul>
+	          	</td>
+	          </tr>
 	          
 	             
 	        </tfoot>
