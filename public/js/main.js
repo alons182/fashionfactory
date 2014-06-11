@@ -56,7 +56,10 @@ $(function () {
 		});
 
 		
-		$('.carousel').contentcarousel();
+		$('.carousel').contentcarousel({
+			wheel : 3,
+			nav   : 3
+		});
 	    $('.related-products').contentcarousel();
 		 
 		setTimeout(function(){

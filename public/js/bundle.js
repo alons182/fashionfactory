@@ -153,7 +153,9 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 						sliderEasing	: 'easeOutExpo',// easing for the sliding animation
 						itemSpeed		: 500,			// speed for the item animation (open / close)
 						itemEasing		: 'easeOutExpo',// easing for the item animation (open / close)
-						scroll			: 1				// number of items to scroll at a time
+						scroll			: 1,				// number of items to scroll at a time
+						wheel			: 4,					// number of items to init mousewheel effect
+						nav				: 4					// number of items to show nav
 					};
 					
 					return this.each(function() {
@@ -174,7 +176,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 						cache.totalItems	= $items.length;
 						
 						// add navigation buttons
-						if( cache.totalItems >= 3 )	
+						if( cache.totalItems >= settings.nav )	
 							$el.prepend('<div class="ca-nav"><span class="ca-nav-prev icon-arrow-left"></span><span class="ca-nav-next icon-arrow-right"></span></div>')	
 						
 						// control the scroll value
@@ -233,16 +235,21 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 						
 						// adds events to the mouse
 						$el.bind('mousewheel','.contentcarousel', function(e, delta) {
-							if(delta > 0) {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( -1, $el, $wrapper, settings, cache );
-							}	
-							else {
-								if( cache.isAnimating ) return false;
-								cache.isAnimating	= true;
-								aux.navigate( 1, $el, $wrapper, settings, cache );
-							}	
+							
+							if (cache.totalItems >= settings.wheel)
+							{
+									if(delta > 0) {
+									if( cache.isAnimating ) return false;
+									cache.isAnimating	= true;
+									aux.navigate( -1, $el, $wrapper, settings, cache );
+								}	
+								else {
+									if( cache.isAnimating ) return false;
+									cache.isAnimating	= true;
+									aux.navigate( 1, $el, $wrapper, settings, cache );
+								}	
+							}
+							
 							return false;
 						});
 						
@@ -1473,7 +1480,10 @@ $(function () {
 		});
 
 		
-		$('.carousel').contentcarousel();
+		$('.carousel').contentcarousel({
+			wheel : 3,
+			nav   : 3
+		});
 	    $('.related-products').contentcarousel();
 		 
 		setTimeout(function(){
