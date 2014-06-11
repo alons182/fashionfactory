@@ -209,10 +209,6 @@ $(function () {
                 output = [],
                 i = 0,
                 counter = 0;
-           
-
-            //(options) ? $(this.el).html('<ul class="pagination"></ul>') : '';
-            
             
 
             pageStart = pageStart < 1 ? 1 : pageStart;//check the range of the page start to see if its less than 1.
@@ -253,7 +249,7 @@ $(function () {
      
      
 
-           // return this;
+           
     }
     function buildItem (output){
               $('.pagination').html("");
@@ -372,7 +368,7 @@ $(function () {
         var html = ProductTemplate(products);
        
         $('#modalAddProduct').find('.tbody').html( html );
-        //debugger;
+        
         Pagination(jsonData.total, jsonData.current_page, 10,jsonData.per_page);
 
     }
@@ -415,7 +411,7 @@ $(function () {
            
           }
     function getProductsByName (callback, key) {
-              // var p = page ? parseInt(page, 10) : 1;
+             
               $.ajax({
                             
                   url : '/admin/products/list',

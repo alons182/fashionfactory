@@ -1489,10 +1489,12 @@ $(function () {
 
 		function resizes()
 		 {
+			
 			var width_section = 0;
 
 			if($(window).width() < 480){
-				api.teardown();
+				if(api)
+					api.teardown();
 				$('.easyzoom a').on('click', function(event) {event.preventDefault();}); 
 			}else
 			{
