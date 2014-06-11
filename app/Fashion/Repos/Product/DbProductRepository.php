@@ -70,7 +70,7 @@ class DbProductRepository extends DbRepository implements ProductRepository{
 		
 		if($product->relateds)
 		{
-			return $this->getProducts()->with('categories')->whereIn('id', $product->relateds)->get(['products.id','products.name','products.image','products.slug']);
+			return $this->getProducts()->with('categories')->whereIn('id', $product->relateds)->get(['products.id','products.name','products.image','products.slug','price']);
 		}
 	
 	}
