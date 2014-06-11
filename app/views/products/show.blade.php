@@ -69,7 +69,7 @@
 								@if ($related->image)
 								<img src="{{ photos_path('products') }}thumb_{{ $related->image }}" data-src="{{ photos_path('products') }}{{ $related->image}}" alt="{{ $related->name }}">
 								@else 
-								<img src="holder.js/200x135/text:No-image" alt="{{ $related->name }}">
+								<img src="holder.js/184x240/text:No-image" alt="{{ $related->name }}">
 								@endif
 								<span class="caption">
 									<span class="related-name">{{ $related->name }}</span>
