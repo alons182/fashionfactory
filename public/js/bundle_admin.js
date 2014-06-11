@@ -4448,9 +4448,9 @@ $(function () {
                     this.timer = setTimeout(function () {
                         console.log('search ' + key);
                          getProductsByName(fillProductsInfo,key); //self.searchResults.findByName(key);
-                        $('.dropdown').addClass('open');
-                        $('.loading-search').addClass('hidden');
-                    },400);
+                        //$('.dropdown').addClass('open');
+                        //$('.loading-search').addClass('hidden');
+                    },300);
                  
               
               }else if(key.length == 0){
