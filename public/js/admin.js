@@ -394,11 +394,10 @@ $(function () {
                     $('.loading-search').removeClass('hidden');
                     clearTimeout( this.timer );
                     this.timer = setTimeout(function () {
-                        console.log('search ' + key);
-                         getProductsByName(fillProductsInfo,key); //self.searchResults.findByName(key);
-                        //$('.dropdown').addClass('open');
-                        //$('.loading-search').addClass('hidden');
-                    },300);
+                         console.log('search ' + key);
+                         getProductsByName(fillProductsInfo,key); 
+                        
+                    },200);
                  
               
               }else if(key.length == 0){
