@@ -11,7 +11,7 @@ class CategoryProductTableSeeder extends Seeder {
 
 		$productIds = Product::lists('id');
 		$categoryIds = Category::withoutRoot()->withDepth()->having('depth', '>', 1)->lists('id');
-		foreach(range(1, 20) as $index)
+		foreach(range(1, 30) as $index)
 		{
 			
 			DB::table('category_product')->insert([
