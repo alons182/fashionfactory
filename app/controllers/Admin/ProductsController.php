@@ -10,10 +10,10 @@ use Fashion\Repos\Category\CategoryRepository;
 
 class ProductsController extends \BaseController {
 
-	protected $registrationForm;
-	protected $editForm;
+    protected $registrationForm;
+    protected $editForm;
 	protected $productRepository;
-	protected $categoryRepository;   
+    protected $categoryRepository;
 	  
 
 	function __construct(RegistrationForm $registrationForm, EditForm $editForm, ProductRepository $productRepository, CategoryRepository $categoryRepository)
@@ -29,9 +29,9 @@ class ProductsController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
-	 * GET /products
+	 * GET /productsssas
 	 *
-	 * @return Response
+	 * @return Respoasdanse
 	 */
 	public function index()
 	{
@@ -54,6 +54,7 @@ class ProductsController extends \BaseController {
 				'selectedStatus' => $search['published']
 
 				]);
+
 	}
 
 	/**
@@ -179,13 +180,13 @@ class ProductsController extends \BaseController {
 			]);
 	}
 
-	/**
-	 * Remove multiple resource from storage.
-	 * DELETE /products/{id}
-	 *
-	 * @param  int  $chk_product (array of ids)
-	 * @return Response
-	 */
+    /**
+     * Remove multiple resource from storage.
+     * DELETE /products/{id}
+     *
+     * @internal param int $chk_product (array of ids)
+     * @return Response
+     */
 	public function destroy_multiple()
 	{
 		$products_id = Input::get('chk_product');
@@ -214,5 +215,7 @@ class ProductsController extends \BaseController {
 		return $this->productRepository->list_products(input::get('exc_id'),input::get('key'));
 		
 	}
+
+
 
 }
