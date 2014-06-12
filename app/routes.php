@@ -6,51 +6,51 @@ App::bind('Fashion\Repos\Category\CategoryRepository', 'Fashion\Repos\Category\D
 App::bind('Fashion\Repos\Product\ProductRepository', 'Fashion\Repos\Product\DbProductRepository');
 App::bind('Fashion\Repos\Photo\PhotoRepository', 'Fashion\Repos\Photo\DbPhotoRepository');
 # Session
-Route::get('admin/login', ['as'=> 'login', 'uses'=>'SessionsController@create']);
-Route::post('admin/login', ['as'=> 'sessions.store', 'uses'=>'SessionsController@store']);
-Route::get('admin/logout', ['as'=> 'logout', 'uses'=>'SessionsController@destroy']);
+Route::get('admin/login', ['as' => 'login', 'uses' => 'SessionsController@create']);
+Route::post('admin/login', ['as' => 'sessions.store', 'uses' => 'SessionsController@store']);
+Route::get('admin/logout', ['as' => 'logout', 'uses' => 'SessionsController@destroy']);
 
 # reset password
 Route::controller('password', 'RemindersController');
 
-Route::group(['prefix' => 'admin', 'before' => 'auth.admin'], function()
+Route::group(['prefix' => 'admin', 'before' => 'auth.admin'], function ()
 {
 
 # Dashboard
-Route::get('/', ['as'=> 'admin', 'uses'=>'App\Controllers\Admin\DashboardController@index']);
+    Route::get('/', ['as' => 'admin', 'uses' => 'App\Controllers\Admin\DashboardController@index']);
 
 # Users
-Route::get('users', ['as'=> 'users', 'uses'=>'App\Controllers\Admin\UsersController@index']);
-Route::get('users/register', ['as'=> 'user_register', 'uses'=>'App\Controllers\Admin\UsersController@create']);
-Route::post('users/register', ['as'=> 'user_register.store', 'uses'=>'App\Controllers\Admin\UsersController@store']);
-Route::resource('users', 'App\Controllers\Admin\UsersController');
+    Route::get('users', ['as' => 'users', 'uses' => 'App\Controllers\Admin\UsersController@index']);
+    Route::get('users/register', ['as' => 'user_register', 'uses' => 'App\Controllers\Admin\UsersController@create']);
+    Route::post('users/register', ['as' => 'user_register.store', 'uses' => 'App\Controllers\Admin\UsersController@store']);
+    Route::resource('users', 'App\Controllers\Admin\UsersController');
 
 # categories
-foreach (['up', 'down','pub', 'unpub','feat','unfeat'] as $key) 
-    {    
+    foreach (['up', 'down', 'pub', 'unpub', 'feat', 'unfeat'] as $key)
+    {
         Route::post("categories/{category}/$key", array(
-            'as' => "categories.$key",
+            'as'   => "categories.$key",
             'uses' => "App\Controllers\Admin\CategoriesController@$key",
         ));
     }
-Route::resource('categories', 'App\Controllers\Admin\CategoriesController');
+    Route::resource('categories', 'App\Controllers\Admin\CategoriesController');
 
 # products       
 
-foreach (['pub', 'unpub'] as $key) 
-    {    
+    foreach (['pub', 'unpub'] as $key)
+    {
         Route::post("products/{product}/$key", array(
-            'as' => "products.$key",
+            'as'   => "products.$key",
             'uses' => "App\Controllers\Admin\ProductsController@$key",
         ));
     }
-Route::post('products/delete', ['as'=> 'destroy_multiple', 'uses'=>'App\Controllers\Admin\ProductsController@destroy_multiple']);
-Route::get('products/list', ['as'=> 'products_list', 'uses'=>'App\Controllers\Admin\ProductsController@list_products']);
-Route::resource('products', 'App\Controllers\Admin\ProductsController');
+    Route::post('products/delete', ['as' => 'destroy_multiple', 'uses' => 'App\Controllers\Admin\ProductsController@destroy_multiple']);
+    Route::get('products/list', ['as' => 'products_list', 'uses' => 'App\Controllers\Admin\ProductsController@list_products']);
+    Route::resource('products', 'App\Controllers\Admin\ProductsController');
 
-Route::post('photos', ['as' => 'save_photo', 'uses' => 'App\Controllers\Admin\PhotosController@store']);
-Route::post('photos/{photo}', ['as' => 'delete_photo', 'uses' => 'App\Controllers\Admin\PhotosController@destroy']);
-//Route::resource('photos', 'App\Controllers\Admin\PhotosController');
+    Route::post('photos', ['as' => 'save_photo', 'uses' => 'App\Controllers\Admin\PhotosController@store']);
+    Route::post('photos/{photo}', ['as' => 'delete_photo', 'uses' => 'App\Controllers\Admin\PhotosController@destroy']);
+
 
 });
 

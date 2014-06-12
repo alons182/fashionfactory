@@ -30,9 +30,7 @@ class ProductsController extends \BaseController {
      */
     public function index($category)
     {
-
         $category = $this->categoryRepository->getCategories()->SearchSlug($category)->firstOrFail();
-
         $products = $category->products()->with('categories')->where('published', '=', 1)->paginate($this->limit);
 
         return View::make('products.index')->withProducts($products)->withCategory($category);
@@ -46,9 +44,7 @@ class ProductsController extends \BaseController {
      */
     public function search()
     {
-
         $search = Input::all();
-
         $products = Search::products($search);
 
         return View::make('products.index')->withProducts($products)->withSearch($search['q']);
@@ -66,11 +62,8 @@ class ProductsController extends \BaseController {
     public function show($category, $product)
     {
         $category = $this->categoryRepository->getCategories()->SearchSlug($category)->firstOrFail();
-
         $product = $category->products()->SearchSlug($product)->firstOrFail();
-
         $relateds = $this->productRepository->relateds($product);
-
         $photos = $this->photoRepository->getPhotos($product->id);
 
         return View::make('products.show')->withProduct($product)->withRelateds($relateds)->withCategory($category)->withPhotos($photos);

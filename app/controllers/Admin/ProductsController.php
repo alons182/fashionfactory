@@ -12,173 +12,160 @@ class ProductsController extends \BaseController {
 
     protected $registrationForm;
     protected $editForm;
-	protected $productRepository;
+    protected $productRepository;
     protected $categoryRepository;
-	  
-
-	function __construct(RegistrationForm $registrationForm, EditForm $editForm, ProductRepository $productRepository, CategoryRepository $categoryRepository)
-	{
-		$this->registrationForm = $registrationForm;
-		$this->editForm = $editForm;
-		$this->productRepository = $productRepository;
-		$this->categoryRepository = $categoryRepository;
-		
-		$this->limit = 10;
-	}
 
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /productsssas
-	 *
-	 * @return Respoasdanse
-	 */
-	public function index()
-	{
-		
-		$search = Input::all();
-		
-		$search['q'] = (isset($search['q'])) ? trim($search['q']) : '';
-		$search['cat'] = (isset($search['cat'])) ? $search['cat'] : '';
-		$search['published'] = (isset($search['published'])) ? $search['published'] : '';
-	
-		$categories = $this->categoryRepository->getParents(false);
+    function __construct(RegistrationForm $registrationForm, EditForm $editForm, ProductRepository $productRepository, CategoryRepository $categoryRepository)
+    {
+        $this->registrationForm = $registrationForm;
+        $this->editForm = $editForm;
+        $this->productRepository = $productRepository;
+        $this->categoryRepository = $categoryRepository;
 
-		$products = $this->productRepository->search($search)->with('categories')->paginate($this->limit);
-						
-		return \View::make('admin.products.index')->with([
-				'products' => $products,
-				'search' => $search['q'],
-				'options' => $categories,
-				'categorySelected' => $search['cat'],
-				'selectedStatus' => $search['published']
+        $this->limit = 10;
+    }
 
-				]);
 
-	}
+    /**
+     * Display a listing of the resource.
+     * GET /products
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $search = Input::all();
+        $search['q'] = (isset($search['q'])) ? trim($search['q']) : '';
+        $search['cat'] = (isset($search['cat'])) ? $search['cat'] : '';
+        $search['published'] = (isset($search['published'])) ? $search['published'] : '';
+        $categories = $this->categoryRepository->getParents(false);
+        $products = $this->productRepository->search($search)->with('categories')->paginate($this->limit);
 
-	/**
-	 * Show the form for creating a new resource.
-	 * GET /products/create
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		$categories = $this->categoryRepository->getParents();
-		
-		return \View::make('admin.products.create')->withCategories($categories);
-	}
+        return \View::make('admin.products.index')->with([
+            'products'         => $products,
+            'search'           => $search['q'],
+            'options'          => $categories,
+            'categorySelected' => $search['cat'],
+            'selectedStatus'   => $search['published']
 
-	/**
-	 * Store a newly created resource in storage.
-	 * POST /products
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		$input = Input::all();
-		
-		$this->registrationForm->validate($input);
+        ]);
 
-		$product = $this->productRepository->store($input);
-				
-		return \Redirect::route('admin.products.index')->with([
-				'flash_message' => 'Product created',
-				'flash_type' => 'alert-success'
-			]);;
-	}
+    }
 
-	
-	/**
-	 * Show the form for editing the specified resource.
-	 * GET /products/{id}/edit
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//return \Product::with('relateds')->find($id);
-		
+    /**
+     * Show the form for creating a new resource.
+     * GET /products/create
+     *
+     * @return Response
+     */
+    public function create()
+    {
+        $categories = $this->categoryRepository->getParents();
 
-		$product = $this->productRepository->findById($id);
+        return \View::make('admin.products.create')->withCategories($categories);
+    }
 
-		$relateds = $this->productRepository->relateds($product);
-		
-		$categories = $this->categoryRepository->getParents();
-		
-		$selectedCategories = $product->categories()->select('categories.id AS id')->lists('id');
+    /**
+     * Store a newly created resource in storage.
+     * POST /products
+     *
+     * @return Response
+     */
+    public function store()
+    {
+        $input = Input::all();
+        $this->registrationForm->validate($input);
+        $this->productRepository->store($input);
 
-		
-		return \View::make('admin.products.edit')->withProduct($product)->withCategories($categories)->withSelected($selectedCategories)->withRelateds($relateds);
-	}
+        return \Redirect::route('admin.products.index')->with([
+            'flash_message' => 'Product created',
+            'flash_type'    => 'alert-success'
+        ]);;
+    }
 
-	/**
-	 * Update the specified resource in storage.
-	 * PUT /products/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		
-		$input = Input::all();
-		$this->editForm->validate($input);
-		$this->productRepository->update($id, $input);
 
-		return \Redirect::route('admin.products.index')->with([
-				'flash_message' => 'Updated Product',
-				'flash_type' => 'alert-success'
-			]);
-	}
+    /**
+     * Show the form for editing the specified resource.
+     * GET /products/{id}/edit
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $product = $this->productRepository->findById($id);
+        $relateds = $this->productRepository->relateds($product);
+        $categories = $this->categoryRepository->getParents();
+        $selectedCategories = $product->categories()->select('categories.id AS id')->lists('id');
 
-	/**
-	 * published a Product.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function pub($id)
-	{
-		
-		$this->productRepository->update_state($id, 1);
-		return \Redirect::route('admin.products.index');
-	}
+        return \View::make('admin.products.edit')->withProduct($product)->withCategories($categories)->withSelected($selectedCategories)->withRelateds($relateds);
+    }
 
-	/**
-	 * Unpublished a Product.
-	 *
-	 * @param  int $id
-	 *
-	 * @return Response
-	 */
-	public function unpub($id)
-	{
-		
-		$this->productRepository->update_state($id, 0);
-		return \Redirect::route('admin.products.index');
-	}
+    /**
+     * Update the specified resource in storage.
+     * PUT /products/{id}
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function update($id)
+    {
 
-	/**
-	 * Remove the specified resource from storage.
-	 * DELETE /products/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		$this->productRepository->destroy($id);
+        $input = Input::all();
+        $this->editForm->validate($input);
+        $this->productRepository->update($id, $input);
 
-		return \Redirect::route('admin.products.index')->with([
-				'flash_message' => 'Product Delete',
-				'flash_type' => 'alert-success'
-			]);
-	}
+        return \Redirect::route('admin.products.index')->with([
+            'flash_message' => 'Updated Product',
+            'flash_type'    => 'alert-success'
+        ]);
+    }
+
+    /**
+     * published a Product.
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function pub($id)
+    {
+        $this->productRepository->update_state($id, 1);
+
+        return \Redirect::route('admin.products.index');
+    }
+
+    /**
+     * Unpublished a Product.
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function unpub($id)
+    {
+        $this->productRepository->update_state($id, 0);
+
+        return \Redirect::route('admin.products.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * DELETE /products/{id}
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        $this->productRepository->destroy($id);
+
+        return \Redirect::route('admin.products.index')->with([
+            'flash_message' => 'Product Delete',
+            'flash_type'    => 'alert-success'
+        ]);
+    }
 
     /**
      * Remove multiple resource from storage.
@@ -187,35 +174,33 @@ class ProductsController extends \BaseController {
      * @internal param int $chk_product (array of ids)
      * @return Response
      */
-	public function destroy_multiple()
-	{
-		$products_id = Input::get('chk_product');
+    public function destroy_multiple()
+    {
+        $products_id = Input::get('chk_product');
 
-		foreach ($products_id as $id) {
-			$this->productRepository->destroy($id);
-		}
-		
-		return \Redirect::route('admin.products.index')->with([
-				'flash_message' => 'Products Delete',
-				'flash_type' => 'alert-success'
-			]);
-		
-	}
+        foreach ($products_id as $id)
+        {
+            $this->productRepository->destroy($id);
+        }
 
-	/**
-	 * List of products for the modal view of related products.
-	 * GET /products/list
-	 *
-	 * @param  int  exc_id (exclude current id for editing)
-	 * @return Response
-	 */
-	public function list_products()
-	{
+        return \Redirect::route('admin.products.index')->with([
+            'flash_message' => 'Products Delete',
+            'flash_type'    => 'alert-success'
+        ]);
 
-		return $this->productRepository->list_products(input::get('exc_id'),input::get('key'));
-		
-	}
+    }
 
+    /**
+     * List of products for the modal view of related products.
+     * GET /products/list
+     *
+     * @param  int  exc_id (exclude current id for editing)
+     * @return Response
+     */
+    public function list_products()
+    {
+        return $this->productRepository->list_products(input::get('exc_id'), input::get('key'));
+    }
 
 
 }
