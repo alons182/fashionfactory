@@ -4,12 +4,11 @@ var gulp        = require('gulp'),
     stripDebug  = require('gulp-strip-debug'),
     browserify  = require('gulp-browserify'),
     imagemin    = require('gulp-imagemin'),
-    stripDebug  = require('gulp-strip-debug'),
     minifyCSS   = require('gulp-minify-css'),
     minifyHTML  = require('gulp-minify-html'),
-    stylus  = require('gulp-stylus'),
-    nib  = require('nib'),
-    concat = require('gulp-concat');
+    stylus      = require('gulp-stylus'),
+    nib         = require('nib'),
+    concat      = require('gulp-concat');
 
 
 gulp.task('js', function () {
@@ -76,11 +75,11 @@ gulp.task('css_admin', function () {
 });
 
 gulp.task('watch', function () {
-   gulp.watch(['./public/js/main.js'],['js']);
+    gulp.watch(['./public/js/main.js'],['js']);
     gulp.watch(['./public/js/admin.js'],['js_admin']);
-   gulp.watch(['./public/stylus/main.styl'],['stylus']);
-   gulp.watch(['./public/css/main.css'],['css']);
-   gulp.watch(['./public/css/admin.css'],['css_admin']);
+    gulp.watch(['./public/stylus/main.styl'],['stylus']);
+    gulp.watch(['./public/css/main.css'],['css']);
+    gulp.watch(['./public/css/admin.css'],['css_admin']);
    
 });
 

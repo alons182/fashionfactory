@@ -9,9 +9,9 @@
 		"fzaninotto/faker": "1.4.*@dev"
 	},
 	"require": {
-		"laravel/framework": "4.1.*",
+		"laravel/framework": "4.2.*",
 		"laracasts/validation": "1.1.*",
-		"kalnoy/nestedset": "1.0.*",
+		"kalnoy/nestedset": "1.1.*",
 		"intervention/image": "dev-master"
 
 	},
