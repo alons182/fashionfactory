@@ -21,12 +21,13 @@ class ProductsController extends \BaseController {
 		$this->limit = 15;
 	}
 
-	/**
-	 * Display a listing of the resource.
-	 * GET /products
-	 *
-	 * @return Response
-	 */
+    /**
+     * Display a listing of the resource.
+     * GET /products
+     *
+     * @param $category
+     * @return Response
+     */
 	public function index($category)
 	{
 		
@@ -53,13 +54,15 @@ class ProductsController extends \BaseController {
 		return  View::make('products.index')->withProducts($products)->withSearch($search['q']); 
 	}
 
-	/**
-	 * Display the specified resource.
-	 * GET /products/{id}
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
+    /**
+     * Display the specified resource.
+     * GET /products/{id}
+     *
+     * @param $category
+     * @param $product
+     * @internal param int $id
+     * @return Response
+     */
 	public function show($category, $product)
 	{
 		$category = $this->categoryRepository->getCategories()->SearchSlug($category)->firstOrFail();
