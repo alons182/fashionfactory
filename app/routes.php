@@ -28,9 +28,9 @@ Route::group(['prefix' => 'admin', 'before' => 'auth.admin'], function ()
 # categories
     foreach (['up', 'down', 'pub', 'unpub', 'feat', 'unfeat'] as $key)
     {
-        Route::post('categories/{category}/$key', [
-            'as'   => 'categories.$key',
-            'uses' => 'App\Controllers\Admin\CategoriesController@$key',
+        Route::post('categories/{category}/'.$key, [
+            'as'   => 'categories.'.$key,
+            'uses' => 'App\Controllers\Admin\CategoriesController@'.$key,
         ]);
     }
     Route::resource('categories', 'App\Controllers\Admin\CategoriesController');
@@ -39,9 +39,9 @@ Route::group(['prefix' => 'admin', 'before' => 'auth.admin'], function ()
 
     foreach (['pub', 'unpub'] as $key)
     {
-        Route::post('products/{product}/$key', array(
-            'as'   => 'products.$key',
-            'uses' => 'App\Controllers\Admin\ProductsController@$key',
+        Route::post('products/{product}/'.$key, array(
+            'as'   => 'products.'.$key,
+            'uses' => 'App\Controllers\Admin\ProductsController@'.$key,
         ));
     }
     Route::post('products/delete', ['as' => 'destroy_multiple', 'uses' => 'App\Controllers\Admin\ProductsController@destroy_multiple']);
