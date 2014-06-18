@@ -1,11 +1,7 @@
 var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
-    changed     = require('gulp-changed'),
     stripDebug  = require('gulp-strip-debug'),
-    browserify  = require('gulp-browserify'),
-    imagemin    = require('gulp-imagemin'),
     minifyCSS   = require('gulp-minify-css'),
-    minifyHTML  = require('gulp-minify-html'),
     stylus      = require('gulp-stylus'),
     nib         = require('nib'),
     concat      = require('gulp-concat');
