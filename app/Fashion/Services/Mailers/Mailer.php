@@ -4,14 +4,14 @@ use Mail;
 
 abstract class Mailer 
 {
-	
-	public function sendTo($user, $subject, $view, $data = [])
+
+	public function sendTo($emailTo, $subject, $view, $data = [])
 	{
 		
-		Mail::send($view, $data, function ($message) use($user, $subject)
+		Mail::send($view, $data, function ($message) use($emailTo, $subject)
 		{
 			
-			$message->to($user['email'])
+			$message->to($emailTo)
 					->subject($subject);
 
 		});

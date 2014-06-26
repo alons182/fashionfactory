@@ -3,7 +3,6 @@
 
 use Fashion\Repos\Product\ProductRepository;
 use Fashion\Repos\Category\CategoryRepository;
-use Fashion\Services\Search\Search;
 
 class Search  {
 
