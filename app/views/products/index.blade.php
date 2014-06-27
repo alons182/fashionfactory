@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+@section('meta-title')
+Fashion Factory | Products
+@stop
 @section('content') 
 
 
@@ -43,9 +45,9 @@
 
     </div>
     @if(isset($search))
-   		<div class="pagination-container">{{$products->appends(['q' => $search])->links()}}</td>
+   		<div class="pagination-container">{{$products->appends(['q' => $search])->links()}}</div>
     @else 
-		<div class="pagination-container">{{$products->links()}}</td>
+		<div class="pagination-container">{{$products->links()}}</div>
 	@endif
 </div>
 

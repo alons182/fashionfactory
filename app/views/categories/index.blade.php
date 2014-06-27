@@ -1,5 +1,8 @@
 @extends('layouts.layout')
 
+@section('meta-title')
+Fashion Factory | Categorias
+@stop
 @section('content') 
 
 
