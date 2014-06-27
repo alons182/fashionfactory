@@ -52,10 +52,10 @@
                 </section>
             </div>
         </section>
-        
+
 
         <script src="/js/bundle.js"></script>
-
+        @yield('scripts')
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
            //$('.carousel').swipe();
