@@ -13,7 +13,7 @@
 			<p class="intro">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
 			<address>
 				<span>info@fashionfactory.com</span><br />
-				<span>2666-5858</span>
+				<span>2666 1254</span>
 			</address>	
 			<div class="bg_white">
 				{{ Form::open(['route'=>'contact.store','class'=>'form-contact']) }}
