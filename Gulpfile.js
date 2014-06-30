@@ -74,6 +74,7 @@ gulp.task('watch', function () {
     gulp.watch(['./public/js/main.js'],['js']);
     gulp.watch(['./public/js/admin.js'],['js_admin']);
     gulp.watch(['./public/stylus/main.styl'],['stylus']);
+    gulp.watch(['./public/stylus/responsive.styl'],['stylus']);
     gulp.watch(['./public/css/main.css'],['css']);
     gulp.watch(['./public/css/admin.css'],['css_admin']);
    
