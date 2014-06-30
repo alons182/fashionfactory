@@ -273,7 +273,7 @@ header .container{padding:1em 1.5em}
 .productdetails:after{clear:both}
 .productdetails h1{font-size:22px;margin:0 0 6px;padding:0}
 .productdetails h3{font-size:18px}
-.productdetails .social-share{float:right}
+.productdetails .social-share{margin-top:1em}
 .productdetails .main-image{width:100%;text-align:left;overflow:hidden;position:relative}
 .productdetails .main-image img{width:auto;max-height:none;max-width:none;position:relative;min-width:100%}
 .productdetails .product-info{padding-top:100px}
@@ -346,9 +346,10 @@ header{width:260px;left:auto}
 .input-container{width:73.927038626609%;margin-left:4.2918454935622%}}
 @media only screen and (min-width:1200px){.productdetails .product-info{width:50%;float:left;margin-left:3.3444816053512%}
 .productdetails .main-image{width:39.715719063545%;float:left;margin-left:3.3444816053512%}}
+@media only screen and (min-width:1366px){.page{padding:116px 75px 0}}
+@media only screen and (min-width:1600px){.productdetails .social-share{margin-top:0;float:right}}
 @media only screen and (max-width:480px){.productdetails .product-info{padding-top:10px}
 .productdetails .product-inner{padding:40px}
 .productdetails .product-name{font-size:30px}
 .page{padding:75px 35px 0}}
 @media only screen and (max-width:1200px){.productdetails .product-inner{padding:0 40px}}
-@media only screen and (min-width:1366px){.page{padding:116px 75px 0}}

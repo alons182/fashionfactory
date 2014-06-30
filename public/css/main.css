@@ -809,7 +809,7 @@ header .container {
   font-size: 18px;
 }
 .productdetails .social-share {
-  float: right;
+  margin-top: 1em;
 }
 .productdetails .main-image {
   width: 100%;
@@ -1210,6 +1210,17 @@ header .container {
     margin-left: 3.3444816053512%;
   }
 }
+@media only screen and (min-width: 1366px) {
+  .page {
+    padding: 116px 75px 0;
+  }
+}
+@media only screen and (min-width: 1600px) {
+  .productdetails .social-share {
+    margin-top: 0;
+    float: right;
+  }
+}
 @media only screen and (max-width: 480px) {
   .productdetails .product-info {
     padding-top: 10px;
@@ -1227,10 +1238,5 @@ header .container {
 @media only screen and (max-width: 1200px) {
   .productdetails .product-inner {
     padding: 0 40px;
-  }
-}
-@media only screen and (min-width: 1366px) {
-  .page {
-    padding: 116px 75px 0;
   }
 }
