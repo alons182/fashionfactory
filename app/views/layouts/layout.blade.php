@@ -78,7 +78,7 @@
         <script data-cfasync='false' type='text/javascript'>
             (function() {
                 var cpt = document.createElement('script'); cpt.type = 'text/javascript'; cpt.async = true;
-                cpt.src = 'http' + (location.protocol == 'https:' ? 's' : '') + '://captainup.com/assets/embed.js';
+                cpt.src = 'http' + (location.protocol == 'https:' ? 's' : '') + '://captainup.com/assets/embed.es.js';
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(cpt);
             })();
         </script>
