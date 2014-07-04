@@ -560,7 +560,7 @@ header .container {
 }
 .portafolio {
   min-height: 300px;
-  background: rgba(0,0,0,0.9);
+  background: url("../img/bg_portafolio.png") rgba(0,0,0,0.9);
   zoom: 1;
 }
 .portafolio:before,
