@@ -298,8 +298,8 @@ header .container{padding:1em 1.5em}
 .productdetails .related-products .ca-nav .ca-nav-next{right:-45px;position:absolute}
 .productdetails .related-products .caption{position:absolute;bottom:8px;left:8px;right:8px;background:rgba(0,0,0,.8)}
 .productdetails .related-products .related-name,.productdetails .related-products .related-price{display:block;font-size:13px;line-height:20px}
-.page{padding:75px 75px 0}
-.page address{margin-bottom:40px}
+.page{padding:55px 75px 0}
+.page address{margin-bottom:10px}
 .intro{font-size:14px;text-transform:uppercase;margin-bottom:25px}
 .bg_white{background:rgba(255,255,255,.3);line-height:25px;padding:30px;margin-top:0;overflow:hidden}
 .logo-about{width:150px;margin:0 auto}
