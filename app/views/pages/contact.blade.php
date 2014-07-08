@@ -12,7 +12,7 @@ Fashion Factory | Contacto
 		<div class="inner-about">
 			
 			<h1>Contáctenos</h1>
-			<p class="intro">"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
+			<p class="intro">"Llamános o escribínos para solucionar cualquier duda o consulta que tengas, en Fashion Factory estamos para servirle !!"</p>
 			<address>
 				<span>info@fashionfactory.com</span><br />
 				<span>2666 1254</span>
