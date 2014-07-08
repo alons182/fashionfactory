@@ -5,7 +5,7 @@ Fashion Factory | Ubicación..
 @section('content') 
 
 
-	<div class=" about align-center">
+	<div class="about align-center">
 		<div class="section-bg" data-bg="/img/about.jpg">
 		</div>
 		<div class="inner-about">
