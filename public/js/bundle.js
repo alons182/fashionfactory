@@ -1533,7 +1533,10 @@ $(function () {
 		   
 			$('.main').width(width_dispo);
 			$('.carousel').height(height_dispo);
-		   
+		    $('.map-location').width(width_dispo).height(height_dispo);
+
+		    
+			
 			$('.category_item').find('.category-image').height(height_dispo);
 			$('.productdetails').find('.main-image').height(height_dispo);
 

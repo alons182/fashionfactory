@@ -303,7 +303,7 @@ header .container{padding:1em 1.5em}
 .intro{font-size:14px;text-transform:uppercase;margin-bottom:25px}
 .bg_white{background:rgba(255,255,255,.3);line-height:25px;padding:30px;margin-top:0;overflow:hidden}
 .logo-about{width:150px;margin:0 auto}
-.map-location{width:100%}
+.map-location{width:100%;height:100%}
 .form-contact label{background:#fff;font-size:12px;text-align:center;height:45px;line-height:45px;color:#000;margin-bottom:30px;display:block}
 .form-contact input,.form-contact textarea{width:92%;padding:0 3%;-webkit-border-radius:0;border-radius:0;color:#000;font-size:13px;height:45px;line-height:45px;border:none;background:#fff;margin-bottom:30px;margin-left:2%}
 .form-contact textarea{height:110px;margin:0;width:94%}
