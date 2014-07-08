@@ -35,9 +35,9 @@ class PagesController extends BaseController {
      * @return Response
      */
 
-    public function about()
+    public function location()
     {
-        return View::make('pages.about');
+        return View::make('pages.location');
     }
 
     /**

@@ -964,6 +964,9 @@ header .container {
   width: 150px;
   margin: 0 auto;
 }
+.map-location {
+  width: 100%;
+}
 .form-contact label {
   background: #fff;
   font-size: 12px;

@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin', 'before' => 'auth.admin'], function ()
 
 # pages  
 Route::get('/', ['as' => 'home', 'uses' => 'PagesController@index']);
-Route::get('about', ['as' => 'about', 'uses' => 'PagesController@about']);
+Route::get('location', ['as' => 'location', 'uses' => 'PagesController@location']);
 Route::get('contact', ['as' => 'contact', 'uses' => 'PagesController@contact']);
 Route::post('contact', ['as' => 'contact.store', 'uses' => 'PagesController@postContact']);
 # categories

@@ -1521,11 +1521,11 @@ $(function () {
 			}
 			 if($(window).width() > 1200 && page){
 				//debugger
-				width_section = section_left.width() + 400;
+				width_section = section_left.width() + 300;
 			 }
 			  if($(window).width() > 1366 && page){
 
-				width_section = section_left.width() + 600;
+				width_section = section_left.width() + 500;
 			 }
 
 			height_dispo = getWindowHeight();
