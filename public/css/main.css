@@ -420,9 +420,9 @@ header .container {
 .copyright {
   position: absolute;
   bottom: 1em;
-  left: 5.5em;
+  left: 7.5em;
   text-align: center;
-  font-size: 13px;
+  font-size: 11px;
 }
 .copyright a {
   display: block;
@@ -1262,7 +1262,7 @@ header .container {
     margin-left: 4.2918454935622%;
   }
   .copyright {
-    left: 8.5em;
+    left: 10.5em;
   }
 }
 @media only screen and (min-width: 1200px) {

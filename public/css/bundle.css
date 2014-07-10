@@ -222,7 +222,7 @@ header .container{padding:1em 1.5em}
 .redes a:hover{background:#e46d22}
 .redes .icon-libermall{font-size:2.5em;padding:0;background:rgba(0,0,0,0);color:#000;position:relative;top:12px;margin-left:0}
 .redes .icon-libermall:hover{color:#e46d22;background:0 0}
-.copyright{position:absolute;bottom:1em;left:5.5em;text-align:center;font-size:13px}
+.copyright{position:absolute;bottom:1em;left:7.5em;text-align:center;font-size:11px}
 .copyright a{display:block;color:#000;margin-bottom:-1.3em}
 .copyright .icon-avotz{font-size:4em}
 .main{float:right;margin:0}
@@ -352,7 +352,7 @@ header{width:260px;left:auto}
 .category-title{font-size:60px;padding:0 10%;text-align:right}
 .label-container{width:21.781115879828%;margin-left:0}
 .input-container{width:73.927038626609%;margin-left:4.2918454935622%}
-.copyright{left:8.5em}}
+.copyright{left:10.5em}}
 @media only screen and (min-width:1200px){.productdetails .product-info{width:50%;float:left;margin-left:3.3444816053512%}
 .productdetails .main-image{width:39.715719063545%;float:left;margin-left:3.3444816053512%}}
 @media only screen and (min-width:1366px){.page{padding:116px 75px 0}}
