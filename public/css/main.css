@@ -438,6 +438,7 @@ header .container {
   color: #fff;
 }
 .copyright {
+  display: none;
   position: absolute;
   bottom: 1em;
   left: 7.5em;
@@ -1226,6 +1227,11 @@ header .container {
   height: 100%;
   margin-left: 20px;
   z-index: 9999;
+}
+@media only screen and (min-height: 620px) {
+  .copyright {
+    display: block;
+  }
 }
 @media only screen and (min-width: 480px) {
   .category-readmore {
