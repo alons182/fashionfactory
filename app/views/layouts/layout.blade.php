@@ -36,11 +36,17 @@
                     <a href="/" class="logo"><img src="/img/logo.svg" alt="Fashion Factory" /></a>
                 
                     @include('layouts/partials/_navbar')
-
+                    
+                    <a href="http://fashionfactorycr.us2.list-manage.com/subscribe?u=595e4e5f9adffbd2554f75cab&id=b82738cee4" class="btn btn-descuento" target="_blank">Recibí descuentos</a>
                     <div class="redes">
-                        <a href="#" class="icon icon-facebook" title="Facebook"></a>
+                        <a href="https://www.facebook.com/fashionfactorylib" class="icon icon-facebook" title="Facebook" target="_blank"></a>
                         <a href="#" class="icon icon-twitter" title="Twitter"></a>
-                        <a href="#" class="icon icon-libermall" title="Libermall"></a>
+                        <a href="http://www.libermall.com" class="icon icon-libermall" title="Libermall" target="_blank"></a>
+                    </div>
+
+                    <div class="copyright">
+                        <a href="http://www.avotz.com" title="Avotz Webworks" target="_blank"><span class="icon-avotz"></span></a>
+                        <span>Copyright &copy; 2014</span>
                     </div>
                     
                     
