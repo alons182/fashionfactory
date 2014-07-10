@@ -24,7 +24,11 @@
                         </div>
 
                  {{ Form::close() }}   
-                 
+                 <div class="redes-movil">
+                        <a href="https://www.facebook.com/fashionfactorylib" class="icon icon-facebook" title="Facebook" target="_blank"></a>
+                        <!--<a href="#" class="icon icon-twitter" title="Twitter"></a>-->
+                        <a href="http://www.libermall.com" class="icon icon-libermall" title="Libermall" target="_blank"></a>
+                  </div>
                  <div id="btn_mobile"><span class="icon-menu"></span></div>
             </div>
            
@@ -40,7 +44,7 @@
                     <a href="http://fashionfactorycr.us2.list-manage.com/subscribe?u=595e4e5f9adffbd2554f75cab&id=b82738cee4" class="btn btn-descuento" target="_blank">Recibí descuentos</a>
                     <div class="redes">
                         <a href="https://www.facebook.com/fashionfactorylib" class="icon icon-facebook" title="Facebook" target="_blank"></a>
-                        <a href="#" class="icon icon-twitter" title="Twitter"></a>
+                        <!--<a href="#" class="icon icon-twitter" title="Twitter"></a>-->
                         <a href="http://www.libermall.com" class="icon icon-libermall" title="Libermall" target="_blank"></a>
                     </div>
 

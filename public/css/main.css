@@ -390,10 +390,12 @@ header .container {
 .menu .active a {
   color: #fff;
 }
+.redes-movil,
 .redes {
   font-size: 1em;
   margin-top: 1em;
 }
+.redes-movil a,
 .redes a {
   color: #fff;
   padding: 0.5em;
@@ -401,9 +403,11 @@ header .container {
   background: #000;
   margin: 0.2em;
 }
+.redes-movil a:hover,
 .redes a:hover {
   background: #e46d22;
 }
+.redes-movil .icon-libermall,
 .redes .icon-libermall {
   font-size: 2.5em;
   padding: 0;
@@ -413,11 +417,28 @@ header .container {
   top: 12px;
   margin-left: 0;
 }
+.redes-movil .icon-libermall:hover,
 .redes .icon-libermall:hover {
   color: #e46d22;
   background: transparent;
 }
+.redes-movil {
+  position: fixed;
+  right: 3em;
+  top: -10px;
+  margin-top: 0;
+  font-size: 0.9em;
+}
+.redes-movil a {
+  color: #000;
+  background: #fff;
+}
+.redes-movil .icon-libermall {
+  background: rgba(255,255,255,0);
+  color: #fff;
+}
 .copyright {
+  display: none;
   position: absolute;
   bottom: 1em;
   left: 7.5em;
@@ -1206,6 +1227,14 @@ header .container {
   height: 100%;
   margin-left: 20px;
   z-index: 9999;
+}
+@media only screen and (min-height: 620px) {
+  .copyright {
+    display: block;
+  }
+  .redes-movil {
+    display: none;
+  }
 }
 @media only screen and (min-width: 480px) {
   .category-readmore {
