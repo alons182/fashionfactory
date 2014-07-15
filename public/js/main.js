@@ -3,6 +3,7 @@ $(function () {
 	
 	 var html      = $('html'),
 		 body      = $('body'),
+		 loading      = $('.loading'),
 		 menu      = $('.menu'),
 		 btnMovil  = $('#btn_mobile'),
 		 btnSearch     = $('.search'),
@@ -12,10 +13,10 @@ $(function () {
 		 $easyzoom = '',
 		 api = '';
 
-
+		loading.show();
 	 $(window).load(function() {
-		
-			body.addClass('loaded');
+		    body.removeClass('loading');
+			loading.hide();
 
 			body.css({
 				opacity:1
