@@ -13,12 +13,7 @@
         <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
-        <div class="loading-container">
-            <div class="loading">
-                <img src="/img/loading-site.gif" alt="Cargando">
-                <span>Cargando...</span>
-            </div>
-        </div>
+
         <header class="fixed">
             <div class="container">
                  <a href="#" class="search"><span class="icon-search"></span></a>
@@ -64,7 +59,12 @@
                 </section>
             </div>
         </section>
-
+         <div class="loading-container">
+            <div class="loading">
+                <img src="/img/loading-site.gif" alt="Cargando">
+                <span>Cargando...</span>
+            </div>
+        </div>
 
         <script src="/js/bundle.js"></script>
         @yield('scripts')
