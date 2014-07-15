@@ -14,7 +14,7 @@ body
 	overflow-x hidden
 	width 100%
 	transition all 0.2s ease
-	opacity 0
+	//opacity 0
 	line-height 25px
 	background-position center center
 	background-repeat no-repeat
@@ -47,6 +47,17 @@ header
 
 	.container
 		padding 1em 1.5em
+.loading
+	position absolute
+	left 50%
+	top 50%
+	margin-left -32px /* -1 * image width / 2 */
+	margin-top -32px  /* -1 * image height / 2 */
+	display block
+
+	img 
+		width auto     
+
 
 #btn_mobile
 	position fixed

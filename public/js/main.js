@@ -3,7 +3,7 @@ $(function () {
 	
 	 var html      = $('html'),
 		 body      = $('body'),
-		 loading   = $('.loading'),
+		 loading      = $('.loading'),
 		 menu      = $('.menu'),
 		 btnMovil  = $('#btn_mobile'),
 		 btnSearch     = $('.search'),
@@ -16,8 +16,8 @@ $(function () {
 		loading.show();
 	 $(window).load(function() {
 		    body.removeClass('loading');
+			body.addClass('loaded');
 			loading.hide();
-
 			body.css({
 				opacity:1
 			});

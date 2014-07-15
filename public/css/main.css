@@ -247,9 +247,6 @@ body {
   -o-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
   line-height: 25px;
   background-position: center center;
   background-repeat: no-repeat;
@@ -286,6 +283,17 @@ header {
 }
 header .container {
   padding: 1em 1.5em;
+}
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -32px;
+  margin-top: -32px;
+  display: block;
+}
+.loading img {
+  width: auto;
 }
 #btn_mobile {
   position: fixed;
