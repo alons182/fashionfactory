@@ -13,8 +13,8 @@
         <script src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
-        <div class="loadig">
-            <img src="img/loading.gif" alt="Cargando">
+        <div class="loading">
+            <img src="/img/loading.gif" alt="Cargando">
         </div>
         <header class="fixed">
             <div class="container">

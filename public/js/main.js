@@ -3,7 +3,7 @@ $(function () {
 	
 	 var html      = $('html'),
 		 body      = $('body'),
-		 loading      = $('.loading'),
+		 loading   = $('.loading'),
 		 menu      = $('.menu'),
 		 btnMovil  = $('#btn_mobile'),
 		 btnSearch     = $('.search'),
