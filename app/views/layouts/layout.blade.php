@@ -14,7 +14,7 @@
     </head>
     <body>
         <div class="loading">
-            <img src="/img/loading-page.gif" alt="Cargando">
+            <img src="/img/loading-site.gif" alt="Cargando">
         </div>
         <header class="fixed">
             <div class="container">
