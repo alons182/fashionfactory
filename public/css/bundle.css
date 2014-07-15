@@ -202,6 +202,7 @@ header{background:rgba(0,0,0,.8);left:0;right:-195px;z-index:9999;-webkit-transi
 header .container{padding:1em 1.5em}
 .loading-container{background:rgba(255,255,255,.8);position:absolute;left:0;right:0;top:0;bottom:0;z-index:99}
 .loading{position:absolute;left:50%;top:50%;margin-left:-32px;margin-top:-32px;display:block}
+.loading span{display:block;text-align:center}
 .loading img{width:auto}
 #btn_mobile{position:fixed;right:0;top:0;color:#fff;cursor:pointer;padding:.8em}
 #btn_mobile .icon-menu{font-size:1.5em;color:#fff}

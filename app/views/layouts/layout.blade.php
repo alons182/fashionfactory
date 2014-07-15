@@ -16,6 +16,7 @@
         <div class="loading-container">
             <div class="loading">
                 <img src="/img/loading-site.gif" alt="Cargando">
+                <span>Cargando...</span>
             </div>
         </div>
         <header class="fixed">

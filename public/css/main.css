@@ -301,6 +301,10 @@ header .container {
   margin-top: -32px;
   display: block;
 }
+.loading span {
+  display: block;
+  text-align: center;
+}
 .loading img {
   width: auto;
 }
