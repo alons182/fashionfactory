@@ -3,6 +3,7 @@ $(function () {
 	
 	 var html      = $('html'),
 		 body      = $('body'),
+		 main      = $('.main'),
 		 loading      = $('.loading-container'),
 		 menu      = $('.menu'),
 		 btnMovil  = $('#btn_mobile'),
@@ -18,11 +19,11 @@ $(function () {
 		    body.removeClass('loading');
 			body.addClass('loaded');
 			loading.hide();
-			body.css({
+			main.css({
 				opacity:1
 			});
 
-			if($('.main').children('div').first().hasClass('page'))
+			if(main.children('div').first().hasClass('page'))
 			{
 				page =  true;
 				imageUrl = $('.section-bg').data('bg');

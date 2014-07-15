@@ -231,7 +231,7 @@ header .container{padding:1em 1.5em}
 .copyright{display:none;position:absolute;bottom:1em;left:7.5em;text-align:center;font-size:11px}
 .copyright a{display:block;color:#000;margin-bottom:-1.3em}
 .copyright .icon-avotz{font-size:4em}
-.main{float:right;margin:0}
+.main{float:right;margin:0;opacity:0;-ms-filter:"alpha(Opacity=0)";filter:alpha(opacity=0)}
 .carousel{position:relative}
 .ca-wrapper{position:relative;height:100%;width:100%;overflow:hidden}
 .category_item{position:relative;float:left;width:480px;height:100%;text-align:center;overflow:hidden}
