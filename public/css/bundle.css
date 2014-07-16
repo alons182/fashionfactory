@@ -291,7 +291,7 @@ header .container{padding:1em 1.5em}
 .productdetails .main-image img{width:auto;max-height:none;max-width:none;position:relative;min-width:100%}
 .productdetails .product-info{padding-top:100px}
 .productdetails .product-inner{padding-right:60px}
-.productdetails .product-name{float:left;font-size:36px;color:#000;margin-bottom:20px}
+.productdetails .product-name{float:left;font-size:36px;line-height:36px;color:#000;margin-bottom:20px}
 .productdetails .product-price,.productdetails .product-price-promo{margin:0 5px 15px;clear:both;display:inline-block;font-size:24px;color:#000}
 .productdetails .product-price-promo{font-size:32px;position:relative}
 .productdetails .icon-bookmark{position:absolute;font-size:2em;top:0;right:-65px;color:#eb003a}
