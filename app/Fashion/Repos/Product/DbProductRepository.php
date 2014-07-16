@@ -46,7 +46,7 @@ class DbProductRepository extends DbRepository implements ProductRepository {
             $products = $products->where('published', '=', $search['published']);
         }
 
-        return $products;
+        return $products->orderBy('created_at', 'desc');
     }
 
     public function getProducts()

@@ -18,7 +18,7 @@ class ProductsController extends \BaseController {
         $this->productRepository = $productRepository;
         $this->categoryRepository = $categoryRepository;
         $this->photoRepository = $photoRepository;
-        $this->limit = 15;
+        $this->limit = 10;
     }
 
     /**
