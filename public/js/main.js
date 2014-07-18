@@ -62,7 +62,9 @@ $(function () {
 			wheel : 3,
 			nav   : 3
 		});
-	    $('.related-products').contentcarousel();
+	    $('.related-products').contentcarousel({
+	    	nav: 3
+	    });
 		 
 		setTimeout(function(){
 	        $('.flash-message').fadeOut();
