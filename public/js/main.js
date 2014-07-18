@@ -82,7 +82,7 @@ $(function () {
 			
 			var width_section = 0;
 
-			if($(window).width() < 768){
+			if($(window).width() < 1024){
 				if(api)
 					api.teardown();
 				$('.easyzoom a').on('click', function(event) {event.preventDefault();}); 

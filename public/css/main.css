@@ -982,7 +982,7 @@ header .container {
 }
 .productdetails .related-products {
   position: relative;
-  width: 100%;
+  width: 90%;
   height: 200px;
   margin-bottom: 20px;
 }
@@ -1337,6 +1337,11 @@ header .container {
   .productdetails .social-share {
     margin-top: 0;
     float: right;
+  }
+}
+@media only screen and (min-width: 1920px) {
+  .productdetails .related-products {
+    width: 81%;
   }
 }
 @media only screen and (max-width: 480px) {
