@@ -225,7 +225,7 @@ header .container{padding:1em 1.5em}
 .redes a,.redes-movil a{color:#fff;padding:.5em;display:inline-block;background:#000;margin:.2em}
 .redes a:hover,.redes-movil a:hover{background:#e46d22}
 .redes .icon-libermall,.redes-movil .icon-libermall{font-size:2.5em;padding:0;background:rgba(0,0,0,0);color:#000;position:relative;top:12px;margin-left:0}
-.redes .icon-libermall:hover,.redes-movil .icon-libermall:hover{color:red;background:0 0}
+.redes .icon-libermall:hover,.redes-movil .icon-libermall:hover{color:#e46d22;background:0 0}
 .redes-movil{position:fixed;right:3em;top:-10px;margin-top:0;font-size:.9em}
 .redes-movil a{color:#000;background:#fff}
 .redes-movil .icon-libermall{background:rgba(255,255,255,0);color:#fff}
