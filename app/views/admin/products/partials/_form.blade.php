@@ -8,10 +8,9 @@
 			{{ Form::hidden('product_id',  $product->id) }}
 		@endif		
 		<div class="form-group">
-			{{ Form::label('name','Nombre:')}}
-			{{ Form::text('name',null,['class'=>'form-control','required'=>'required'])}}
+			{{ Form::label('name','Nombre:') }}
+			{{ Form::text('name', null,['class'=>'form-control','required'=>'required']) }}
 			{{ errors_for('name',$errors) }}
-			
 
 		</div>
 		<div class="form-group">
