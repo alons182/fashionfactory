@@ -47,7 +47,7 @@
 
                     <div class="copyright">
                         <a href="http://www.avotz.com" title="Avotz Webworks" target="_blank"><span class="icon-avotz"></span></a>
-                        <span>Copyright &copy; 2014 -</span>
+                        <span>Copyright &copy; 2014</span>
                     </div>
                     
                     
