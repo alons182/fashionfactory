@@ -44,7 +44,7 @@ gulp.task('js_admin', function () {
     ])
     //.pipe(browserify())
     //.pipe(uglify({ compress: true }))
-    //.pipe(stripDebug())
+    .pipe(stripDebug())
     .pipe(concat('bundle_admin.js'))
     .pipe(gulp.dest('./public/js'));
  

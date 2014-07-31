@@ -37,7 +37,7 @@ $(function () {
 			
 			resizes();
 
-			
+
 		 
 		});
 
@@ -45,7 +45,8 @@ $(function () {
 
 		menu.find(".parent").hoverIntent({
 		    over: function() {
-				      $(this).find(">.sub-menu").slideDown(200 );
+		    		  if($(this).find(">.sub-menu").children().length > 0)
+				      	$(this).find(">.sub-menu").slideDown(200 );
 				    },
 		    out:  function() {
 				      $(this).find(">.sub-menu").slideUp(200);

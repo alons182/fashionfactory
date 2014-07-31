@@ -4446,7 +4446,7 @@ $(function () {
                     $('.loading-search').removeClass('hidden');
                     clearTimeout( this.timer );
                     this.timer = setTimeout(function () {
-                         console.log('search ' + key);
+                         void 0;
                          getProductsByName(fillProductsInfo,key); 
                         
                     },200);
