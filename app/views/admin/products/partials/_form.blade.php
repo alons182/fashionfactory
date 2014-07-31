@@ -186,7 +186,7 @@
 		        
 		    @endif
 	    </div>
-	    <div class="form-group">
+	    <!--<div class="form-group">
 	    	<legend>Productos Relacionados</legend>
 	    		
 	    	@include('admin/products/partials/_addRelatedProducts')	
@@ -206,7 +206,7 @@
 		         @endif
 	    	</ul>
 			    
-	    </div>
+	    </div>-->
 
  </div>
 	 

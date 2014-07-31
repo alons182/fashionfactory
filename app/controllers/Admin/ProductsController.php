@@ -95,11 +95,11 @@ class ProductsController extends \BaseController {
     public function edit($id)
     {
         $product = $this->productRepository->findById($id);
-        $relateds = $this->productRepository->relateds($product);
+        //$relateds = $this->productRepository->relateds($product);
         $categories = $this->categoryRepository->getParents();
         $selectedCategories = $product->categories()->select('categories.id AS id')->lists('id');
 
-        return \View::make('admin.products.edit')->withProduct($product)->withCategories($categories)->withSelected($selectedCategories)->withRelateds($relateds);
+        return \View::make('admin.products.edit')->withProduct($product)->withCategories($categories)->withSelected($selectedCategories);//->withRelateds($relateds);
     }
 
     /**
