@@ -376,7 +376,7 @@ header .container {
   background: #fff;
   bottom: 0;
   left: 0;
-  overflow: hidden;
+  overflow: visible;
   position: fixed;
   text-align: center;
   top: 0;
@@ -390,6 +390,9 @@ header .container {
 }
 .menu {
   margin-bottom: 1.3em;
+}
+.menu li {
+  position: relative;
 }
 .menu li a {
   display: block;
@@ -405,10 +408,26 @@ header .container {
   font-weight: 700;
   padding-left: 20px;
 }
+.menu .sub-menu {
+  display: none;
+  position: absolute;
+  background: #fff;
+  left: 298px;
+  top: 10px;
+  z-index: 1000;
+  padding: 10px 10px;
+  min-width: 200px;
+  border: 1px solid rgba(255,229,231,0.1);
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+.menu .sub-menu a {
+  color: #000;
+}
 .menu .active {
   background: #000;
 }
-.menu .active a {
+.menu .active>a {
   color: #fff;
 }
 .redes-movil,
@@ -1292,6 +1311,9 @@ header .container {
   header {
     width: 260px;
     left: auto;
+  }
+  .menu .sub-menu {
+    display: none;
   }
   #btn_mobile {
     display: none;

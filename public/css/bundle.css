@@ -215,12 +215,15 @@ header .container{padding:1em 1.5em}
 .fixed{position:fixed}
 .absolute{position:absolute}
 .container{padding:0;margin:0 auto}
-.section-left{-webkit-transform:translateX(-100%);-moz-transform:translateX(-100%);-o-transform:translateX(-100%);-ms-transform:translateX(-100%);transform:translateX(-100%);background:#fff;bottom:0;left:0;overflow:hidden;position:fixed;text-align:center;top:0;width:250px;z-index:999;-webkit-transition:-webkit-transform 500ms ease;-moz-transition:-moz-transform 500ms ease;-o-transition:-o-transform 500ms ease;-ms-transition:-ms-transform 500ms ease;transition:transform 500ms ease}
+.section-left{-webkit-transform:translateX(-100%);-moz-transform:translateX(-100%);-o-transform:translateX(-100%);-ms-transform:translateX(-100%);transform:translateX(-100%);background:#fff;bottom:0;left:0;overflow:visible;position:fixed;text-align:center;top:0;width:250px;z-index:999;-webkit-transition:-webkit-transform 500ms ease;-moz-transition:-moz-transform 500ms ease;-o-transition:-o-transform 500ms ease;-ms-transition:-ms-transform 500ms ease;transition:transform 500ms ease}
 .menu{margin-bottom:1.3em}
+.menu li{position:relative}
 .menu li a{display:block;padding:.8em;color:#000;-webkit-transition:all .2s ease;-moz-transition:all .2s ease;-o-transition:all .2s ease;-ms-transition:all .2s ease;transition:all .2s ease}
 .menu li a:hover{font-weight:700;padding-left:20px}
+.menu .sub-menu{display:none;position:absolute;background:#fff;left:298px;top:10px;z-index:1000;padding:10px;min-width:200px;border:1px solid rgba(255,229,231,.1);-webkit-box-shadow:0 5px 10px rgba(0,0,0,.2);box-shadow:0 5px 10px rgba(0,0,0,.2)}
+.menu .sub-menu a{color:#000}
 .menu .active{background:#000}
-.menu .active a{color:#fff}
+.menu .active>a{color:#fff}
 .redes,.redes-movil{font-size:1em;margin-top:1em}
 .redes a,.redes-movil a{color:#fff;padding:.5em;display:inline-block;background:#000;margin:.2em}
 .redes a:hover,.redes-movil a:hover{background:#e46d22}
@@ -355,7 +358,7 @@ header .container{padding:1em 1.5em}
 @media only screen and (min-width:980px){.section-left{width:315px;-webkit-transform:translateX(0);-moz-transform:translateX(0);-o-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}
 .logo{margin:20px auto;width:230px}
 header{width:260px;left:auto}
-#btn_mobile{display:none}
+#btn_mobile,.menu .sub-menu{display:none}
 .ca-nav{top:20px}
 .category-title{font-size:60px;padding:0 10%;text-align:right}
 .label-container{width:21.781115879828%;margin-left:0}

@@ -40,6 +40,19 @@ $(function () {
 			
 		 
 		});
+
+
+
+		menu.find(".parent").hoverIntent({
+		    over: function() {
+				      $(this).find(">.sub-menu").slideDown(200 );
+				    },
+		    out:  function() {
+				      $(this).find(">.sub-menu").slideUp(200);
+				    },
+		    timeout: 200
+
+		   	});
 	 		
 	
 		// NAV MOBILE
@@ -95,9 +108,11 @@ $(function () {
 
 			if($(window).width() < 980){
 				width_section = 0;
+				menu.find(".sub-menu").attr('style','display: none !important');
+		    
 			}else{
 				width_section = section_left.width();
-				
+				menu.find(".sub-menu").attr('style','display: none');
 			}
 			 if($(window).width() > 1200 && page){
 				//debugger

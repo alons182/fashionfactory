@@ -19,6 +19,7 @@ gulp.task('js', function () {
     /*'./public/js/vendor/lightbox.min.js',*/
     './public/js/vendor/easyzoom.js',
     './public/js/vendor/holder.js',
+    './public/js/vendor/jquery.hoverIntent.minified.js',
     './public/js/main.js'
    
     ])

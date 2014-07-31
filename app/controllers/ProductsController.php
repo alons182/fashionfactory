@@ -64,9 +64,10 @@ class ProductsController extends \BaseController {
         $category = $this->categoryRepository->getCategories()->SearchSlug($category)->firstOrFail();
         $product = $category->products()->SearchSlug($product)->firstOrFail();
         $relateds = $this->productRepository->relateds($product);
+        $others = $this->productRepository->others($category, $product->id);
         $photos = $this->photoRepository->getPhotos($product->id);
 
-        return View::make('products.show')->withProduct($product)->withRelateds($relateds)->withCategory($category)->withPhotos($photos);
+        return View::make('products.show')->withProduct($product)->withRelateds($relateds)->withOthers($others)->withCategory($category)->withPhotos($photos);
     }
 
 

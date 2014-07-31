@@ -69,6 +69,19 @@ class DbProductRepository extends DbRepository implements ProductRepository {
 
     }
 
+    public function others($category, $id_exc = null)
+    {
+        
+        if ($id_exc)
+            $products = $category->products()->has('categories')->where('products.id', '<>', $id_exc)->paginate(5);
+        else
+            $products = $category->products()->has('categories')->paginate(5);
+       
+       return $products;
+    }
+
+    //List of products for the modal view of related products.
+
     public function list_products($value = null, $search = null)
     {
         if ($search)
