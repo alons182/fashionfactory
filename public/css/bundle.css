@@ -341,6 +341,7 @@ header .container{padding:1em 1.5em}
 .open-menu .section-left{-webkit-transform:translateX(0);-moz-transform:translateX(0);-o-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}
 .open-search header{right:0}
 .open-search .search-container input{opacity:1;-ms-filter:none;filter:none}
+#cpt-hud.cpt-hud-minimized{margin-right:0!important}
 .easyzoom{position:relative;display:inline-block;*display:inline;*zoom:1}
 .easyzoom img{vertical-align:bottom}
 .easyzoom.is-loading img{cursor:progress}

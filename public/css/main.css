@@ -1220,6 +1220,9 @@ header .container {
   -ms-filter: none;
   filter: none;
 }
+#cpt-hud.cpt-hud-minimized {
+  margin-right: 0 !important;
+}
 .easyzoom {
   position: relative;
 /* 'Shrink-wrap' the element */
