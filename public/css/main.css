@@ -693,7 +693,6 @@ header .container {
 }
 .portafolio .inner-element:hover .category-overlay {
   background: rgba(0,0,0,0);
-  height: 0;
 }
 .portafolio .inner-element:hover .category-viewmore {
   -webkit-transform: scale(1, 1);
