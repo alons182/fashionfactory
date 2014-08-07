@@ -693,11 +693,7 @@ header .container {
 }
 .portafolio .inner-element:hover .category-overlay {
   background: rgba(0,0,0,0);
-  -webkit-transition: all 0.5s ease 0s;
-  -moz-transition: all 0.5s ease 0s;
-  -o-transition: all 0.5s ease 0s;
-  -ms-transition: all 0.5s ease 0s;
-  transition: all 0.5s ease 0s;
+  height: 0;
 }
 .portafolio .inner-element:hover .category-viewmore {
   -webkit-transform: scale(1, 1);
@@ -705,11 +701,6 @@ header .container {
   -o-transform: scale(1, 1);
   -ms-transform: scale(1, 1);
   transform: scale(1, 1);
-  -webkit-transition: all 0.4s ease 0s;
-  -moz-transition: all 0.4s ease 0s;
-  -o-transition: all 0.4s ease 0s;
-  -ms-transition: all 0.4s ease 0s;
-  transition: all 0.4s ease 0s;
 }
 .portafolio .category-image {
   position: relative;
