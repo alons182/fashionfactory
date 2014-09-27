@@ -30,7 +30,7 @@ class CategoriesController extends \BaseController {
         $search['q'] = (isset($search['q'])) ? trim($search['q']) : '';
         $search['published'] = (isset($search['published'])) ? $search['published'] : '';
         $categories = $this->categoryRepository->search($search)->withoutRoot()->withDepth()->orderBy('_lft')->paginate($this->limit);
-
+       
         return \View::make('admin.categories.index')->with([
             'categories'     => $categories,
             'search'         => $search['q'],
