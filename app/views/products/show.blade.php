@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 @section('meta-title')
-    Fashion Factory | {{ $product->name }}
+Fashion Factory | {{ $product->name }}
 @stop
 @section('meta-description')
-    {{ $product->description }}
+{{ str_limit(strip_tags($product->description), 150) }}
 @stop
 @section('content')
 

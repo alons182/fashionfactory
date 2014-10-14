@@ -14,16 +14,34 @@ $(function () {
 		 $easyzoom = '',
 		 api = '';
 
-		loading.show();
+		//loading.show();
 	 $(window).load(function() {
-		    body.removeClass('loading');
-			body.addClass('loaded');
-			loading.hide();
-			main.css({
+		    //body.removeClass('loading');
+			//body.addClass('loaded');
+			//loading.hide();
+			/*main.css({
 				opacity:1
-			});
+			});*/
 
-			if(main.children('div').first().hasClass('page'))
+			/*if(main.children('div').first().hasClass('page'))
+			{
+				page =  true;
+				imageUrl = $('.section-bg').data('bg');
+				body.css('background-image', 'url(' + imageUrl + ')' );
+			}
+
+			
+			$easyzoom = $('.easyzoom').easyZoom();
+	 		api = $easyzoom.data('easyZoom');
+			
+			
+			resizes();*/
+
+
+		 
+		});
+
+	 if(main.children('div').first().hasClass('page'))
 			{
 				page =  true;
 				imageUrl = $('.section-bg').data('bg');
@@ -37,9 +55,6 @@ $(function () {
 			
 			resizes();
 
-
-		 
-		});
 
 
 
