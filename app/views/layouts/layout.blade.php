@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         
         <title>@yield('meta-title','Fashion Factory | Inicio')</title>
-        <meta name="description" content="">
+        <meta name="description" content="@yield('meta-description','Fashion Factory')">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="/favicon.ico">
         <link href="//fonts.googleapis.com/css?family=Lato:100,300,700" rel="stylesheet" type="text/css">

@@ -1,6 +1,9 @@
 @extends('layouts.layout')
 @section('meta-title')
-Fashion Factory | {{ $product->name }}
+    Fashion Factory | {{ $product->name }}
+@stop
+@section('meta-description')
+    {{ $product->description }}
 @stop
 @section('content')
 
