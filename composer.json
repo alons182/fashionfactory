@@ -4,8 +4,8 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require-dev": {
-		"way/Generators": "dev-master",
-		"itsgoingd/clockwork": "dev-master",
+		"way/Generators": "3",
+		"itsgoingd/clockwork": "1.*",
 		"fzaninotto/faker": "1.4.*@dev"
 	},
 	"require": {
