@@ -1,6 +1,6 @@
 
 $(function () {
-	
+
 	 var html      = $('html'),
 		 body      = $('body'),
 		 main      = $('.main'),
@@ -14,9 +14,9 @@ $(function () {
 		 $easyzoom = '',
 		 api = '';
 
-		loading.show();
-	 $(window).load(function() {
-		    body.removeClass('loading');
+		//loading.show();
+	 //$(window).load(function() {
+		//    body.removeClass('loading');
 			body.addClass('loaded');
 			loading.hide();
 			main.css({
@@ -30,16 +30,16 @@ $(function () {
 				body.css('background-image', 'url(' + imageUrl + ')' );
 			}
 
-			
+
 			$easyzoom = $('.easyzoom').easyZoom();
 	 		api = $easyzoom.data('easyZoom');
-			
-			
+
+
 			resizes();
 
 
-		 
-		});
+
+	//	});
 
 
 
@@ -54,24 +54,24 @@ $(function () {
 		    timeout: 200
 
 		   	});
-	 		
-	
+
+
 		// NAV MOBILE
 		btnMovil.click(function(e){
 			e.preventDefault();
-			
+
 			html.toggleClass('open-menu');
-		   
+
 		});
 
 		btnSearch.click(function(e){
 			e.preventDefault();
 
 			html.toggleClass('open-search');
-		   
+
 		});
 
-		
+
 		$('.carousel').contentcarousel({
 			wheel : 3,
 			nav   : 3
@@ -79,38 +79,38 @@ $(function () {
 	    $('.related-products').contentcarousel({
 	    	nav: 3
 	    });
-		 
+
 		setTimeout(function(){
 	        $('.flash-message').fadeOut();
 	    }, 3000);
 
 
-		
-	   
-		$(window).resize(resizes); 
 
-		  
+
+		$(window).resize(resizes);
+
+
 
 		function resizes()
 		 {
-			
+
 			var width_section = 0;
 
 			if($(window).width() < 1024){
 				if(api)
 					api.teardown();
-				$('.easyzoom a').on('click', function(event) {event.preventDefault();}); 
+				$('.easyzoom a').on('click', function(event) {event.preventDefault();});
 			}else
 			{
 				$easyzoom = $('.easyzoom').easyZoom();
 	 		    api = $easyzoom.data('easyZoom');
 			}
-				
+
 
 			if($(window).width() < 980){
 				width_section = 0;
 				menu.find(".sub-menu").attr('style','display: none !important');
-		    
+
 			}else{
 				width_section = section_left.width();
 				menu.find(".sub-menu").attr('style','display: none');
@@ -126,26 +126,26 @@ $(function () {
 
 			height_dispo = getWindowHeight();
 			width_dispo = getWindowWidth() - (width_section);
-		   
+
 			$('.main').width(width_dispo);
 			$('.carousel').height(height_dispo);
 		    $('.map-location').width(width_dispo).height(height_dispo);
 
-		    
-			
+
+
 			$('.category_item').find('.category-image').height(height_dispo);
 			$('.productdetails').find('.main-image').height(height_dispo);
 
 			ResizeImageContainer($('.category-image'));
-			
+
 			if(main_image == true)
 				ResizeImageContainer($('.main-image'));
-		  
-		  
+
+
 		 }
 
 		 //PORTAFOLIO CATEGOIRES
-		 
+
 
 	   /* var cat_width = 400;
 		var w_height = $(window).height();
@@ -196,21 +196,21 @@ $(function () {
 		//GALLERY IMG CLICK
 
 		$('.additional-images').find('img').on('click',function(){
-			
+
 			//console.log($(this).attr('src'));
 			$('.main-image').find('a').attr('href', $(this).data('src')).find('img').attr('src', $(this).data('src'));
-			
+
 			api.swap($(this).data('src'), $(this).data('src'))
-			
+
 			//resizes();
 			if(main_image == true)
 				ResizeImageContainer($('.main-image'));
-			
+
 		});
 
 
 
-	
+
 });
 
 
@@ -257,7 +257,7 @@ $(function () {
 			ResizeImageContainer($('.category-image'));
 			ResizeImageContainer($('.product-image'));
 		}
-	
+
  function ResizeImageContainer(obj){
 
 
@@ -266,8 +266,8 @@ $(function () {
 			var widthImage;
 			var heightImage;
 			obj.each(function (i,el){
-				
-				
+
+
 				heightStage = jQuery(this).height();
 
 				widthStage = jQuery (this).width();
@@ -277,7 +277,7 @@ $(function () {
 				var image = new Image();
 				image.src = img_url;
 
-		
+
 				image.onload = function() {
 		         //  console.log(image.naturalWidth);
 		          // console.log(image.naturalHeight);
@@ -298,7 +298,7 @@ $(function () {
 
 		function resizeImage  (widthImage, heightImage, widthStage, heightStage) {
 
-			
+
 			//alert(heightStage + "_"+heightImage);
 			//alert(widthImage +'-'+ heightImage+'-'+ widthStage+'-'+ heightStage);
 			var escImageX = widthStage / widthImage;
@@ -312,7 +312,7 @@ $(function () {
 
 			var escalaImage = (escImageX > escImageY) ? escImageX : escImageY;
 
-			
+
 
 			var widthV = widthImage * escalaImage;
 
@@ -322,7 +322,7 @@ $(function () {
 
 			var posImageX = 0;
 
-			
+
 
 			if (heightV > heightStage) {
 
@@ -338,7 +338,7 @@ $(function () {
 
 			}
 
-			
+
 
 			return { top: posImageY, left: posImageX, width: widthV, height: heightV };
 
@@ -417,4 +417,3 @@ function getWindowWidth() {
 	}
 	return windowWidth;
 }
-
