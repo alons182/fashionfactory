@@ -14,9 +14,9 @@ $(function () {
 		 $easyzoom = '',
 		 api = '';
 
-		//loading.show();
-	 //$(window).load(function() {
-		//    body.removeClass('loading');
+		loading.show();
+	 $(window).load(function() {
+		  body.removeClass('loading');
 			body.addClass('loaded');
 			loading.hide();
 			main.css({
@@ -39,7 +39,7 @@ $(function () {
 
 
 
-	//	});
+		});
 
 
 
